@@ -5,7 +5,7 @@
   <b>Miss Rozy : A Permanent file Store BOT</b>
 </h1>
 
-# `Miss Rozy` : A PERMANENT FILE STORE BOT
+# `Miss Rozy` : `Give me a STAR ⭐️`
 This is Telegram Parmanent Files Store Bot by [@LazyDeveloperr](https://github.com/LazyDeveloperr).
 
 ## Commands:
