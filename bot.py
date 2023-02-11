@@ -82,7 +82,7 @@ async def start(bot: Client, cmd: Message):
                         InlineKeyboardButton("Aß⊕ut Đ€V", callback_data="aboutdevs")
                     ],
                     [
-                        InlineKeyboardButton("🦋 🆆🅰🆃🅲🅷 🆃🆄🆃🅾🆁🅸🅰🅻 🦋", callback_data="aboutdevs")
+                        InlineKeyboardButton("・‥…━🦋━━━☆ 𝙒𝙖𝙩𝙘𝙝 𝙏𝙪𝙩𝙤𝙧𝙞𝙖𝙡 ☆━━━🦋━…‥・", url="https://youtube.com/@LazyDeveloperr")
                     ]
                 ]
             )
