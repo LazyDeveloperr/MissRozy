@@ -8,6 +8,5 @@ app = Flask(__name__)
 def hello_world():
     return '@LazyDeveloper'
 
-
 if __name__ == "__main__":
     app.run()

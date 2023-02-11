@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="https://telegra.ph/file/d382d2fad1fdd2a4ccca4.png" alt="ROSE BUCKET Logo">
+  <img src="https://telegra.ph/file/68d28011b2bc356b5db01.png" alt="ROSE BUCKET Logo">
 </p>
 <h1 align="center">
-  <b> Miss Rozy : A Permanent File Store BOT </b>
+  <b> Lazy PrincessV2.0 </b>
 </h1>
 
-# Miss Rozy : Permanent FILE STORE BOT
+# ROSE BUCKET : FILE STORE BOT
 This is Telegram Parmanent Files Store Bot by [@LazyDeveloperr](https://github.com/LazyDeveloperr).
 
 ## Commands:
@@ -26,7 +26,7 @@ This is Telegram Parmanent Files Store Bot by [@LazyDeveloperr](https://github.c
 - Save Multiple Files in Same Link. (Batch)
 
 ### Demo Bot:
-<a href="https://telegram.me/MissRozy_BOT"><img src="https://img.shields.io/badge/Demo-Telegram%20Bot-blue.svg?logo=telegram"></a>
+<a href="https://telegram.me/LazyRose_fileStoreBOT"><img src="https://img.shields.io/badge/Demo-Telegram%20Bot-blue.svg?logo=telegram"></a>
 
 ## Configs:
 - `API_ID` - Get this from [@TeleORG_Bot](https://t.me/TeleORG_Bot)
@@ -68,7 +68,6 @@ This is Telegram Parmanent Files Store Bot by [@LazyDeveloperr](https://github.c
 <p align="left">
 <a href="https://instagram.com/LazyDeveloperr"><img src="https://img.shields.io/badge/Instagram-Follow%20on%20Instagram-important.svg?logo=instagram"></a>
 </p>
-
 
 
 * **Language:** [Python3](https://www.python.org)

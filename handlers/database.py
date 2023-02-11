@@ -77,3 +77,4 @@ class Database:
 
 
 db = Database(Config.DATABASE_URL, Config.BOT_USERNAME)
+

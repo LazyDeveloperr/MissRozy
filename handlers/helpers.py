@@ -15,3 +15,4 @@ def b64_to_str(b64: str) -> str:
     bytes_str = standard_b64decode(bytes_b64)
     __str = bytes_str.decode('ascii')
     return __str
+

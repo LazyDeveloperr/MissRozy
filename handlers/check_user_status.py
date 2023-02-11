@@ -26,3 +26,4 @@ async def handle_user_status(bot, cmd):
             await cmd.reply_text("You are Banned to Use This Bot baby 🥺", quote=True)
             return
     await cmd.continue_propagation()
+    

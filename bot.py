@@ -235,7 +235,6 @@ async def ban(c: Client, m: Message):
             quote=True
         )
 
-
 @Bot.on_message(filters.private & filters.command("unban_user") & filters.user(Config.BOT_OWNER))
 async def unban(c: Client, m: Message):
 

@@ -14,3 +14,4 @@ async def add_user_to_database(bot: Client, cmd: Message):
                 int(Config.LOG_CHANNEL),
                 f"#NEW_USER: \n\nNew User [{cmd.from_user.first_name}](tg://user?id={cmd.from_user.id})\n#User_id: {cmd.from_user.id}\nConnected to @{Config.BOT_USERNAME} !!"
             )
+            

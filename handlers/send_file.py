@@ -19,7 +19,6 @@ async def reply_forward(message: Message, file_id: int):
         await asyncio.sleep(e.value)
         await reply_forward(message, file_id)
 
-
 async def media_forward(bot: Client, user_id: int, file_id: int):
     try:
         if Config.FORWARD_AS_COPY is True:

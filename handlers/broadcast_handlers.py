@@ -95,7 +95,7 @@ async def main_broadcast_handler(m, db):
             text=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.",
             quote=True
         )
-    else:
+    else:  
         await m.reply_document(
             document='broadcast.txt',
             caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.",

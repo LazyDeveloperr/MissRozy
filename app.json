@@ -54,6 +54,10 @@
         "FORWARD_AS_COPY": {
             "description": "If True all messages will be forwarder As Copy. If False all messages will be forwarder with Forward Tag. Value should be True/False !!",
             "required": false
+        },
+        "LAZY_PIC": {
+            "description": "Bot Start up Picture . Get it from telegraph boy",
+            "required": true
         }
     },
     "buildpacks": [

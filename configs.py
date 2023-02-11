@@ -11,7 +11,7 @@ class Config(object):
 	BOT_OWNER = int(os.environ.get("BOT_OWNER", "5965340120"))
 	DATABASE_URL = os.environ.get("DATABASE_URL")
 	UPDATES_CHANNEL = os.environ.get("UPDATES_CHANNEL", "-1001765107260")
-	LOG_CHANNEL = os.environ.get("LOG_CHANNEL", "")
+	LOG_CHANNEL = os.environ.get("LOG_CHANNEL")
 	BANNED_USERS = set(int(x) for x in os.environ.get("BANNED_USERS", "1234567890").split())
 	FORWARD_AS_COPY = bool(os.environ.get("FORWARD_AS_COPY", True))
 	BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", False))
@@ -45,5 +45,5 @@ class Config(object):
 	HOME_TEXT = """
 HΞУ, [{}](tg://user?id={})\n\nɪ'ᴍ ɪꜱ ᴘᴇʀᴍᴀɴᴇɴᴛ **ꜰɪʟᴇ ꜱᴛᴏʀᴇ ʙᴏᴛ**.
 
-ミ★ 𝘚𝘦𝘯𝘥 𝘮𝘦 𝘢𝘯𝘺 𝘧𝘪𝘭𝘦 𝘐 𝘸𝘪𝘭𝘭 𝘨𝘪𝘷𝘦 𝘺𝘰𝘶 𝘢 𝘱𝘦𝘳𝘮𝘢𝘯𝘦𝘯𝘵 𝘚𝘩𝘢𝘳𝘢𝘣𝘭𝘦 𝘓𝘪𝘯𝘬. 𝘐 𝘚𝘶𝘱𝘱𝘰𝘳𝘵 𝘊𝘩𝘢𝘯𝘯𝘦𝘭 𝘈𝘭𝘴𝘰! 𝘊𝘩𝘦𝘤𝘬 **A͢b͢o͢u͢t͢ B͢o͢t͢**  𝘉𝘶𝘵𝘵𝘰𝘯.
+ミ★ 𝘚𝘦𝘯𝘥 𝘮𝘦 𝘢𝘯𝘺 𝘧𝘪𝘭𝘦 𝘐 𝘸𝘪𝘭𝘭 𝘨𝘪𝘷𝘦 𝘺𝘰𝘶 𝘢 𝘱𝘦𝘳𝘮𝘢𝘯𝘦𝘯𝘵 𝘚𝘩𝘢𝘳𝘢𝘣𝘭𝘦 𝘓𝘪𝘯𝘬. 𝘐 𝘚𝘶𝘱𝘱𝘰𝘳𝘵 𝘊𝘩𝘢𝘯𝘯𝘦𝘭 𝘈𝘭𝘴𝘰! 𝘊𝘩𝘦𝘤𝘬 **A͢b͢o͢u͢t͢ B͢o͢t͢**  𝘉𝘶𝘵𝘵𝘰𝘯 .
 """
