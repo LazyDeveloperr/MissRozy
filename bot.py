@@ -3,6 +3,7 @@
 import os
 import asyncio
 import traceback
+lazy_pic = os.environ.get("LAZY_PIC","")
 from binascii import (
     Error
 )
@@ -68,7 +69,7 @@ async def start(bot: Client, cmd: Message):
     usr_cmd = cmd.text.split("_", 1)[-1]
     if usr_cmd == "/start":
         await add_user_to_database(bot, cmd)
-        await cmd.reply_photo(photo="https://telegra.ph/file/d382d2fad1fdd2a4ccca4.png",
+        await cmd.reply_photo(photo=lazy_pic,
             caption=Config.HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id),
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -79,6 +80,9 @@ async def start(bot: Client, cmd: Message):
                     [
                         InlineKeyboardButton("Aß⊕ut ß⊕†", callback_data="aboutbot"),
                         InlineKeyboardButton("Aß⊕ut Đ€V", callback_data="aboutdevs")
+                    ],
+                    [
+                        InlineKeyboardButton("🦋 🆆🅰🆃🅲🅷 🆃🆄🆃🅾🆁🅸🅰🅻 🦋", callback_data="aboutdevs")
                     ]
                 ]
             )
@@ -314,7 +318,7 @@ async def button(bot: Client, cmd: CallbackQuery):
                 [
                     [
                         InlineKeyboardButton("SФUЯCΞ CФDΞS ФF ß⊕Γ",
-                                             url="https://github.com/LazyDeveloperr/Rose-Bucket")
+                                             url="https://github.com/LazyDeveloperr/MissRozy")
                     ],
                     [
                         InlineKeyboardButton("GФ HФMΞ", callback_data="gotohome"),
@@ -332,7 +336,7 @@ async def button(bot: Client, cmd: CallbackQuery):
                 [
                     [
                         InlineKeyboardButton("SФUЯCΞ CФDΞS ФF ß⊕Γ",
-                                             url="https://github.com/LazyDeveloperr/Rose-Bucket")
+                                             url="https://github.com/LazyDeveloperr/MissRozy")
                     ],
                     [
                         InlineKeyboardButton("Aß⊕ut ß⊕t", callback_data="aboutbot"),

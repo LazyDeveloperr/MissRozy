@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://telegra.ph/file/d382d2fad1fdd2a4ccca4.png" alt="ROSE BUCKET Logo">
+  <img src="https://telegra.ph/file/68d28011b2bc356b5db01.png" alt="ROSE BUCKET Logo">
 </p>
 <h1 align="center">
   <b> Lazy PrincessV2.0 </b>
@@ -56,7 +56,7 @@ This is Telegram Parmanent Files Store Bot by [@LazyDeveloperr](https://github.c
 [![YouTube](https://img.shields.io/badge/YouTube-Video%20Tutorial-red?logo=youtube)](https://youtube.com/@LazyDeveloperr)
 
 ### Deploy Now:
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/LazyDeveloperr/Rose-Bucket)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/LazyDeveloperr/MissRozy)
 
 ### Support Group:
 <a href="https://t.me/LazyDeveloperSupport"><img src="https://img.shields.io/badge/Telegram-Join%20Telegram%20Group-blue.svg?logo=telegram"></a>
