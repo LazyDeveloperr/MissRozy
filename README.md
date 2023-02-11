@@ -9,7 +9,7 @@
 This is Telegram Parmanent Files Store Bot by [@LazyDeveloperr](https://github.com/LazyDeveloperr).
 
 ## Commands:
-```
+
 `/start` - start the bot
 `/clear_batch` - Clear User Batch Files
 `/status` - Show number of users in DB [Owner Only]
@@ -17,7 +17,7 @@ This is Telegram Parmanent Files Store Bot by [@LazyDeveloperr](https://github.c
 `/ban_user` - [user_id] [ban_duration] [ban_reason] Ban Any User [Owner Only]
 `/unban_user` - [user_id] Unban Any User [Owner Only]
 `/banned_users` - Get All Banned Users [Owner Only]
-```
+
 ### Features:
 - In PM Just Forward or Send any file it will save on Database & give you the Access Link.
 - In Channel Add Bot as Admin with Edit Rights. When you will send any file or media in Channel it will Edit the Broadcast Message with Saved Link Button.
