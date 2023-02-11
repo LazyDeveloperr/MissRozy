@@ -89,6 +89,7 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
             disable_web_page_preview=True)
         share_link = f"https://t.me/{Config.BOT_USERNAME}?start=LazyDeveloperr_{str_to_b64(file_er_id)}"
         caption_z = f"{message.caption}"
+        thumbs= {message.video.thumbs[0]}
         await editable.edit(
             "**𝘺𝘰𝘶𝘳 𝘍𝘪𝘭𝘦𝘴 𝘚𝘵𝘰𝘳𝘦𝘥 𝘪𝘯 𝘮𝘺 𝘋𝘢𝘵𝘢𝘣𝘢𝘴𝘦!**\n\n"
             f"𝙃𝙚𝙧𝙚 𝙞𝙨 𝙩𝙝𝙚 𝙋𝙚𝙧𝙢𝙖𝙣𝙚𝙣𝙩 𝙇𝙞𝙣𝙠 𝙤𝙛 𝙮𝙤𝙪𝙧 𝙛𝙞𝙡𝙚: {share_link}  \n\n"
@@ -100,6 +101,8 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
             ),
             disable_web_page_preview=True
         )
+        await editable.edit(photo=thumbs)
+
     except FloodWait as sl:
         if sl.value > 45:
             print(f"Sleep of {sl.value}s caused by FloodWait ...")
