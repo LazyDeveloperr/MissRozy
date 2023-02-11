@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="https://telegra.ph/file/68d28011b2bc356b5db01.png" alt="ROSE BUCKET Logo">
+  <img src="https://telegra.ph/file/d382d2fad1fdd2a4ccca4.png" alt="ROSE BUCKET Logo">
 </p>
 <h1 align="center">
-  <b> Lazy PrincessV2.0 </b>
+  <b>`Miss Rozy` : A Permanent file Store BOT</b>
 </h1>
 
-# ROSE BUCKET : FILE STORE BOT
+# `Miss Rozy` : A PERMANENT FILE STORE BOT
 This is Telegram Parmanent Files Store Bot by [@LazyDeveloperr](https://github.com/LazyDeveloperr).
 
 ## Commands:
@@ -68,6 +68,7 @@ This is Telegram Parmanent Files Store Bot by [@LazyDeveloperr](https://github.c
 <p align="left">
 <a href="https://instagram.com/LazyDeveloperr"><img src="https://img.shields.io/badge/Instagram-Follow%20on%20Instagram-important.svg?logo=instagram"></a>
 </p>
+
 
 
 * **Language:** [Python3](https://www.python.org)
