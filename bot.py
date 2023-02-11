@@ -68,9 +68,8 @@ async def start(bot: Client, cmd: Message):
     usr_cmd = cmd.text.split("_", 1)[-1]
     if usr_cmd == "/start":
         await add_user_to_database(bot, cmd)
-        await cmd.reply_photo(photo="",
+        await cmd.reply_photo(photo="https://telegra.ph/file/d382d2fad1fdd2a4ccca4.png",
             caption=Config.HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id),
-            disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
