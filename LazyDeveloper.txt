@@ -1,0 +1,5 @@
+#Thank you LazyDeveloper for helping me in this journey !
+#Must Subscribe On YouTube @LazyDeveloperr 
+#please check run cmd in procfile of your repository !
+
+gunicorn app:app & python3 bot.py
