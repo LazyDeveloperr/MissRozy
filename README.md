@@ -2,7 +2,7 @@
   <img src="https://telegra.ph/file/d382d2fad1fdd2a4ccca4.png" alt="ROSE BUCKET Logo">
 </p>
 <h1 align="center">
-  <b>`Miss Rozy` : A Permanent file Store BOT</b>
+  <b>Miss Rozy : A Permanent file Store BOT</b>
 </h1>
 
 # `Miss Rozy` : A PERMANENT FILE STORE BOT
