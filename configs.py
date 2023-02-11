@@ -1,16 +1,7 @@
 # (c) @LazyDeveloperr
-import re
-import os
-from os import environ
 
-id_pattern = re.compile(r'^.\d+$')
-def is_enabled(value, default):
-    if value.lower() in ["true", "yes", "1", "enable", "y"]:
-        return True
-    elif value.lower() in ["false", "no", "0", "disable", "n"]:
-        return False
-    else:
-        return default
+import os
+
 class Config(object):
 	API_ID = int(os.environ.get("API_ID"))
 	API_HASH = os.environ.get("API_HASH")
@@ -24,7 +15,7 @@ class Config(object):
 	BANNED_USERS = set(int(x) for x in os.environ.get("BANNED_USERS", "1234567890").split())
 	FORWARD_AS_COPY = bool(os.environ.get("FORWARD_AS_COPY", True))
 	BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", False))
-	LAZY_CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get("LAZY_CHANNELS").split()]
+	LAZY_CHANNELS = int(os.environ.get("LAZY_CHANNELS"))
 	LAZY_MODE = bool(os.environ.get("LAZY_MODE", True))
 	BANNED_CHAT_IDS = list(set(int(x) for x in os.environ.get("BANNED_CHAT_IDS", "-1001362659779 -1001255795497").split()))
 	OTHER_USERS_CAN_SAVE_FILE = bool(os.environ.get("OTHER_USERS_CAN_SAVE_FILE", True))
