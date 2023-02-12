@@ -60,7 +60,7 @@ I am hte first permanent file store with Automatic thumbnail extracting + Automa
 	- Put all banned channel IDs & Separate with space.
 
 ### Video Tutorial:
-[![YouTube](https://img.shields.io/badge/YouTube-Video%20Tutorial-red?logo=youtube)](https://youtube.com/@LazyDeveloperr)
+[![YouTube](https://img.shields.io/badge/YouTube-Video%20Tutorial-red?logo=youtube)](https://youtu.be/Rtjyz3lEZwE)
 
 ### Deploy Now:
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/LazyDeveloperr/MissRozy)
