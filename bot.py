@@ -70,9 +70,9 @@ async def start(bot: Client, cmd: Message):
     if usr_cmd == "/start":
         await add_user_to_database(bot, cmd)
         if(Config.LAZY_MODE == True):
-            captionz=Config.LAZY_HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id),
-        else :
-            captionz=Config.HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id),
+            captionz=Config.LAZY_HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id)
+        else:
+            captionz=Config.HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id)
 
             await cmd.reply_photo(photo=lazy_pic,caption=captionz,
             reply_markup=InlineKeyboardMarkup(
