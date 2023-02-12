@@ -34,7 +34,7 @@ I am hte first permanent file store with Automatic thumbnail extracting + Automa
 - `LAZY_PIC` - BOT startup picture *(required)*
 - `LP_CHANNEL_USRNM` - Give your main channel username `without @`  *(REQUIRED)*. This value will be used in post template 
 	- The default value will be `LAZY_DEVELOPER`.
-- `LP_CHANNEL_ADMIN` - Give your username `without @` *(Optional)*. This will be used in post template
+- `LPCH_ADMIN_USRMN` - Give your username `without @` *(Optional)*. This will be used in post template
 	- If `True` all messages will be forwarder *As Copy*. If `False` all messages will be forwarder with Forward Tag.
 - `API_ID` - Get this from [@TeleORG_Bot](https://t.me/TeleORG_Bot)
 - `API_HASH` - Get this from [@TeleORG_Bot](https://t.me/TeleORG_Bot)
