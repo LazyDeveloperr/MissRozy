@@ -74,15 +74,15 @@ async def start(bot: Client, cmd: Message):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("supp⊕r† gr⊕up", url="https://t.me/LazyDeveloperSupport"),
-                        InlineKeyboardButton("ß⊕†s chαηηεl", url="https://t.me/LazyDeveloper")
+                        InlineKeyboardButton("🍿supp⊕r† gr⊕up", url="https://t.me/LazyDeveloperSupport"),
+                        InlineKeyboardButton("🔊ß⊕†s chαηηεl", url="https://t.me/LazyDeveloper")
                     ],
                     [
-                        InlineKeyboardButton("Aß⊕ut ß⊕†", callback_data="aboutbot"),
-                        InlineKeyboardButton("Aß⊕ut Đ€V", callback_data="aboutdevs")
+                        InlineKeyboardButton("🤖Aß⊕ut ß⊕†", callback_data="aboutbot"),
+                        InlineKeyboardButton("♥️Aß⊕ut Đ€V", callback_data="aboutdevs")
                     ],
                     [
-                        InlineKeyboardButton("🦋 🆆🅰🆃🅲🅷 🆃🆄🆃🅾🆁🅸🅰🅻 🦋", url="https://youtube.com/@LazyDeveloperr")
+                        InlineKeyboardButton("⎝⎝✧✧ ᴡᴀᴛᴄʜ ᴛᴜᴛᴏʀɪᴀʟ ✧✧⎠⎠", url="https://youtube.com/@LazyDeveloperr")
                     ]
                 ]
             )
@@ -316,12 +316,12 @@ async def button(bot: Client, cmd: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("SФUЯCΞ CФDΞS ФF ß⊕Γ",
+                        InlineKeyboardButton("⚡️SФUЯCΞ CФDΞS ФF ß⊕Γ",
                                              url="https://github.com/LazyDeveloperr/MissRozy")
                     ],
                     [
                         InlineKeyboardButton("GФ HФMΞ", callback_data="gotohome"),
-                        InlineKeyboardButton("Aß⊕ut Đ€V", callback_data="aboutdevs")
+                        InlineKeyboardButton("♥️Aß⊕ut Đ€V", callback_data="aboutdevs")
                     ]
                 ]
             )
@@ -334,12 +334,12 @@ async def button(bot: Client, cmd: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("SФUЯCΞ CФDΞS ФF ß⊕Γ",
+                        InlineKeyboardButton("⚡️SФUЯCΞ CФDΞS ФF ß⊕Γ",
                                              url="https://github.com/LazyDeveloperr/MissRozy")
                     ],
                     [
-                        InlineKeyboardButton("Aß⊕ut ß⊕t", callback_data="aboutbot"),
-                        InlineKeyboardButton("GФ HФMΞ", callback_data="gotohome")
+                        InlineKeyboardButton("🤖Aß⊕ut ß⊕t", callback_data="aboutbot"),
+                        InlineKeyboardButton("🥷GФ HФMΞ", callback_data="gotohome")
                     ]
                 ]
             )
@@ -352,12 +352,12 @@ async def button(bot: Client, cmd: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("supp⊕r† gr⊕up", url="https://t.me/LazyDeveloperSupport"),
-                        InlineKeyboardButton("ß⊕ts Channel", url="https://t.me/LazyDeveloper")
+                        InlineKeyboardButton("🍿supp⊕r† gr⊕up", url="https://t.me/LazyDeveloperSupport"),
+                        InlineKeyboardButton("🔊ß⊕ts Channel", url="https://t.me/LazyDeveloper")
                     ],
                     [
-                        InlineKeyboardButton("Aß⊕ut ß⊕t", callback_data="aboutbot"),
-                        InlineKeyboardButton("Aß⊕ut Đ€V", callback_data="aboutdevs")
+                        InlineKeyboardButton("🤖Aß⊕ut ß⊕t", callback_data="aboutbot"),
+                        InlineKeyboardButton("♥️Aß⊕ut Đ€V", callback_data="aboutdevs")
                     ]
                 ]
             )
@@ -406,12 +406,12 @@ async def button(bot: Client, cmd: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("supp⊕rt gr⊕up", url="https://t.me/LazyDeveloperSupport"),
-                        InlineKeyboardButton("ß⊕ts Channel", url="https://t.me/LazyDeveloper")
+                        InlineKeyboardButton("🍿supp⊕rt gr⊕up", url="https://t.me/LazyDeveloperSupport"),
+                        InlineKeyboardButton("🔊ß⊕ts Channel", url="https://t.me/LazyDeveloper")
                     ],
                     [
-                        InlineKeyboardButton("Aß⊕ut ß⊕t", callback_data="aboutbot"),
-                        InlineKeyboardButton("Aß⊕ut Đ€V", callback_data="aboutdevs")
+                        InlineKeyboardButton("🤖Aß⊕ut ß⊕t", callback_data="aboutbot"),
+                        InlineKeyboardButton("♥️Aß⊕ut Đ€V", callback_data="aboutdevs")
                     ]
                 ]
             )
@@ -439,9 +439,11 @@ async def button(bot: Client, cmd: CallbackQuery):
         await cmd.message.edit("ꜰɪʟᴇ ꜱᴀᴠᴇᴅ ɪɴ ʙᴀᴛᴄʜ!\n\n"
                                "ᴘʀᴇꜱꜱ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ʙᴀᴛᴄʜ ʟɪɴᴋ.",
                                reply_markup=InlineKeyboardMarkup([
-                                   [InlineKeyboardButton("Ǥ€Ŧ βΔtĆh ŁiŇҜ", callback_data="getBatchLink")],
+                                   [InlineKeyboardButton("⚡️Ǥ€Ŧ BATCH ŁinҜ⚡️", callback_data="getBatchLink")],
                                    [InlineKeyboardButton("Close Message", callback_data="closeMessage")]
                                ]))
+        if(Config.LAZY_MODE == True):
+            bot.send_message(caption=f"ღʃ♡ 𝙔𝙤𝙪 𝙖𝙧𝙚 𝙘𝙪𝙧𝙧𝙚𝙣𝙩𝙡𝙮 𝙞𝙣 𝙇𝘼𝙕𝙔_𝙈𝙊𝘿𝙀. ♡ƪღ\n\nᴘʟᴇᴀꜱᴇ ᴏɴʟʏ ᴄʟɪᴄᴋ ->** ᴏᴘᴇɴ ʙᴀᴛᴄʜ ʟɪɴᴋ **<- ᴏɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇ ᴀʙᴏᴠᴇ ᴍᴇꜱꜱᴀɢᴇꜱ\n\nN͢O͢ o͢f͢ c͢l͢i͢c͢k͢ = n͢o͢ o͢f͢ p͢o͢s͢t͢s͢\n\n<a href='https://t.me/LazyDeveloper'>ʟᴀᴢʏᴅᴠᴇʟᴏᴘᴇʀ<a/>")
 
     elif "addToBatchFalse" in cb_data:
         await save_media_in_channel(bot, editable=cmd.message, message=cmd.message.reply_to_message)
