@@ -70,11 +70,8 @@ async def start(bot: Client, cmd: Message):
     if usr_cmd == "/start":
         await add_user_to_database(bot, cmd)
         if(Config.LAZY_MODE == True):
-            captionz=Config.LAZY_HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id)
-        else:
-            captionz=Config.HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id)
-
-            await cmd.reply_photo(photo=lazy_pic,caption=captionz,
+            await cmd.reply_photo(photo=lazy_pic,
+            caption=Config.LAZY_HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id),
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -88,6 +85,23 @@ async def start(bot: Client, cmd: Message):
                     [
                         InlineKeyboardButton("⎝⎝✧✧ ᴡᴀᴛᴄʜ ᴛᴜᴛᴏʀɪᴀʟ ✧✧⎠⎠", url="https://youtube.com/@LazyDeveloperr")
                     ]]))
+        else :
+            await cmd.reply_photo(photo=lazy_pic,
+            caption=Config.HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id),
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton("🍿supp⊕r† gr⊕up", url="https://t.me/LazyDeveloperSupport"),
+                        InlineKeyboardButton("🔊ß⊕†s chαηηεl", url="https://t.me/LazyDeveloper")
+                    ],
+                    [
+                        InlineKeyboardButton("🤖Aß⊕ut ß⊕†", callback_data="aboutbot"),
+                        InlineKeyboardButton("♥️Aß⊕ut Đ€V", callback_data="aboutdevs")
+                    ],
+                    [
+                        InlineKeyboardButton("⎝⎝✧✧ ᴡᴀᴛᴄʜ ᴛᴜᴛᴏʀɪᴀʟ ✧✧⎠⎠", url="https://youtube.com/@LazyDeveloperr")
+                    ]]))
+           
     else:
         try:
             try:
@@ -347,7 +361,28 @@ async def button(bot: Client, cmd: CallbackQuery):
         )
 
     elif "gotohome" in cb_data:
-        await cmd.message.edit(
+        if(Config.LAZY_MODE == True):
+            await cmd.message.edit(
+            Config.LAZY_HOME_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton("🍿supp⊕r† gr⊕up", url="https://t.me/LazyDeveloperSupport"),
+                        InlineKeyboardButton("🔊ß⊕ts Channel", url="https://t.me/LazyDeveloper")
+                    ],
+                    [
+                        InlineKeyboardButton("🤖Aß⊕ut ß⊕t", callback_data="aboutbot"),
+                        InlineKeyboardButton("♥️Aß⊕ut Đ€V", callback_data="aboutdevs")
+                    ],
+                    [
+                        InlineKeyboardButton("⎝⎝✧✧ ᴡᴀᴛᴄʜ ᴛᴜᴛᴏʀɪᴀʟ ✧✧⎠⎠", url="https://youtube.com/@LazyDeveloperr")
+                    ]
+                ]
+            )
+        )
+        else :
+            await cmd.message.edit(
             Config.HOME_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -404,18 +439,42 @@ async def button(bot: Client, cmd: CallbackQuery):
                     disable_web_page_preview=True
                 )
                 return
-        await cmd.message.edit(
-            text=Config.HOME_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
+        if(Config.LAZY_MODE == True):
+            await cmd.message.edit(
+            Config.LAZY_HOME_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🍿supp⊕rt gr⊕up", url="https://t.me/LazyDeveloperSupport"),
+                        InlineKeyboardButton("🍿supp⊕r† gr⊕up", url="https://t.me/LazyDeveloperSupport"),
                         InlineKeyboardButton("🔊ß⊕ts Channel", url="https://t.me/LazyDeveloper")
                     ],
                     [
                         InlineKeyboardButton("🤖Aß⊕ut ß⊕t", callback_data="aboutbot"),
                         InlineKeyboardButton("♥️Aß⊕ut Đ€V", callback_data="aboutdevs")
+                    ],
+                    [
+                        InlineKeyboardButton("⎝⎝✧✧ ᴡᴀᴛᴄʜ ᴛᴜᴛᴏʀɪᴀʟ ✧✧⎠⎠", url="https://youtube.com/@LazyDeveloperr")
+                    ]
+                ]
+            )
+        )
+        else :
+            await cmd.message.edit(
+            Config.HOME_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton("🍿supp⊕r† gr⊕up", url="https://t.me/LazyDeveloperSupport"),
+                        InlineKeyboardButton("🔊ß⊕ts Channel", url="https://t.me/LazyDeveloper")
+                    ],
+                    [
+                        InlineKeyboardButton("🤖Aß⊕ut ß⊕t", callback_data="aboutbot"),
+                        InlineKeyboardButton("♥️Aß⊕ut Đ€V", callback_data="aboutdevs")
+                    ],
+                    [
+                        InlineKeyboardButton("⎝⎝✧✧ ᴡᴀᴛᴄʜ ᴛᴜᴛᴏʀɪᴀʟ ✧✧⎠⎠", url="https://youtube.com/@LazyDeveloperr")
                     ]
                 ]
             )
