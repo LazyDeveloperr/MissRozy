@@ -3,10 +3,11 @@
 </p>
 <h1 align="center">
   <b>Miss Rozy : A Permanent file Store BOT</b>
+  <p>I am hte first permanent file store with Automatic thumbnail extracting + Automatic Movie Posting feature. Its all extra feature's source code is written by `The Sir [LazyDeveloperr](https://github.com/LazyDeveloperr).  </p>
 </h1>
 
-# `Miss Rozy` : `Give me a STAR ⭐️`
-This is Telegram Parmanent Files Store Bot by [@LazyDeveloperr](https://github.com/LazyDeveloperr).
+## `Miss Rozy` : `Give me a STAR ⭐️`
+I am hte first permanent file store with Automatic thumbnail extracting + Automatic Movie Posting feature. Its all extra feature's source code is written by `The Sir [LazyDeveloperr](https://github.com/LazyDeveloperr).<b>So Copy pasters -> Must give credit to [LazyDeveloperr](https://github.com/LazyDeveloperr) else 🖕<b/>
 
 ## Commands:
 
@@ -69,6 +70,10 @@ This is Telegram Parmanent Files Store Bot by [@LazyDeveloperr](https://github.c
 <a href="https://instagram.com/LazyDeveloperr"><img src="https://img.shields.io/badge/Instagram-Follow%20on%20Instagram-important.svg?logo=instagram"></a>
 </p>
 
+##🌟Credits
+- Thank you `[LazyDeveloper](https://github.com/LazyDeveloperr)` for adding `LAZY_MODE` (an advance feature.)
+- Thank you `[LazyDeveloper](https://github.com/LazyDeveloperr)` for `FIXING ERRORS` and adding extra veriables.
+- Thank you `[LazyDeveloper](https://github.com/LazyDeveloperr)` for for your contribution & also thank you for helping us in our journey
 
 
 * **Language:** [Python3](https://www.python.org)
