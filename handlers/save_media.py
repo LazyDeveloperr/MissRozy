@@ -102,15 +102,50 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
         if(Config.LAZY_MODE == True):
             thumbs= message.video.thumbs[0]
             file_id= thumbs.file_id
-            lazy_channel = int(Config.LAZY_CHANNELS)
+            lazy_channel = int(Config.LAZY_CHANNEL)
             location=await bot.download_media(file_id)
-            caption_z = f"{message.caption}\n\nᴛʜᴀɴᴋ ʏᴏᴜ <a href='https://telegram.me/LazyDeveloper'>⎝⎝✧ʟᴀᴢʏᴅᴇᴠᴇʟᴏᴘᴇʀ✧⎠⎠<a>"
+            lazypost_channel_username = (Config.LP_CHANNEL_USRNM)
+            lazypost_ch_admin_usrnm = (Config.LPCH_ADMIN_USRMN)
+            main_channel_username = (Config.LP_BTN_MAIN_CH_USRNM)
+            main_btn_link = f"https://telegram.me/{main_channel_username}"
+            file_name = message.caption
+            caption_z = f"{file_name}\n\n༺ᴊᴏɪɴ @{lazypost_channel_username} ༻\n\n🦋・‥☆𝘼𝘿𝙈𝙞𝙉 𝙨𝙪𝙥𝙥𝙤𝙧𝙩☆‥・🦋\n╰┈➤・☆ @{lazypost_ch_admin_usrnm} \n\n+> ᴛʜᴀɴᴋ ʏᴏᴜ <a href='https://telegram.me/LazyDeveloper'>⎝⎝✧ʟᴀᴢʏᴅᴇᴠᴇʟᴏᴘᴇʀ✧⎠⎠</a>"
+            caption_za = f"{file_name}\n\n༺ᴊᴏɪɴ @{lazypost_channel_username} ༻\n\n+> ᴛʜᴀɴᴋ ʏᴏᴜ <a href='https://telegram.me/LazyDeveloper'>⎝⎝✧ʟᴀᴢʏᴅᴇᴠᴇʟᴏᴘᴇʀ✧⎠⎠</a>"
+            caption_zab = f"{file_name}\n\n🦋・‥☆𝘼𝘿𝙈𝙞𝙉 𝙨𝙪𝙥𝙥𝙤𝙧𝙩☆‥・🦋\n╰┈➤・☆ @{lazypost_ch_admin_usrnm} \n\n+> ᴛʜᴀɴᴋ ʏᴏᴜ <a href='https://telegram.me/LazyDeveloper'>⎝⎝✧ʟᴀᴢʏᴅᴇᴠᴇʟᴏᴘᴇʀ✧⎠⎠</a>"
+            caption_zabi = f"{file_name}\n\n+> ᴛʜᴀɴᴋ ʏᴏᴜ <a href='https://telegram.me/LazyDeveloper'>⎝⎝✧ʟᴀᴢʏᴅᴇᴠᴇʟᴏᴘᴇʀ✧⎠⎠</a>"
+            lazy_dev = f"+> ᴛʜᴀɴᴋ ʏᴏᴜ <a href='https://telegram.me/LazyDeveloper'>⎝⎝✧ʟᴀᴢʏᴅᴇᴠᴇʟᴏᴘᴇʀ✧⎠⎠</a>"
+            lazypost_custom_template = f"{(Config.LP_CUSTOM_TEMPLATE)}\n\n{lazy_dev} ♥️"
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("⎝⎝✧ 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃 𝐍𝐎𝐖 ✧⎠⎠", url=share_link)],
-                 [InlineKeyboardButton("ミ★ GΞΓ FILΞ ★彡", url=share_link)]
+                [[InlineKeyboardButton("⎝⎝✧ ᴅᴏᴡɴʟᴏᴀᴅ ɴᴏᴡ ✧⎠⎠", url=share_link)],
+                 [InlineKeyboardButton("ミ★ GΞΓ FILΞ ★彡", url=share_link)],
                 ]
             )
-            await bot.send_photo(lazy_channel,photo=location,caption=caption_z,reply_markup=reply_markup)
+            main_btn=InlineKeyboardMarkup(
+                [[InlineKeyboardButton("⎝⎝✧ ᴅᴏᴡɴʟᴏᴀᴅ ɴᴏᴡ ✧⎠⎠", url=share_link)],
+                 [InlineKeyboardButton("ミ★ GΞΓ FILΞ ★彡", url=share_link)],
+                 [InlineKeyboardButton("•⊹٭𝚓𝚘𝚒𝚗 𝚖𝚊𝚒𝚗 𝚌𝚑𝚊𝚗𝚗𝚎𝚕٭⊹•", url=main_btn_link)]
+                ]
+            )
+            if(Config.LP_CUSTOM_TEMPLATE):
+                await bot.send_photo(lazy_channel,photo=location,caption=lazypost_custom_template,reply_markup=reply_markup)
+            elif(Config.LP_CUSTOM_TEMPLATE & Config.LP_BTN_MAIN_CH_USRNM):
+                await bot.send_photo(lazy_channel,photo=location,caption=lazypost_custom_template,reply_markup=main_btn)
+            elif(Config.LP_CHANNEL_USRNM & Config.LPCH_ADMIN_USRMN & Config.LP_BTN_MAIN_CH_USRNM):
+                await bot.send_photo(lazy_channel,photo=location,caption=caption_z,reply_markup=main_btn)
+            elif(Config.LP_CHANNEL_USRNM & Config.LPCH_ADMIN_USRMN):
+                await bot.send_photo(lazy_channel,photo=location,caption=caption_z,reply_markup=reply_markup)
+            elif(Config.LP_CHANNEL_USRNM & Config.LP_BTN_MAIN_CH_USRNM):
+                await bot.send_photo(lazy_channel,photo=location,caption=caption_za,reply_markup=main_btn)
+            elif(Config.LP_CHANNEL_USRNM):
+                await bot.send_photo(lazy_channel,photo=location,caption=caption_za,reply_markup=reply_markup)
+            elif(Config.LPCH_ADMIN_USRMN & Config.LP_BTN_MAIN_CH_USRNM):
+                await bot.send_photo(lazy_channel,photo=location,caption=caption_zab,reply_markup=main_btn)
+            elif(Config.LPCH_ADMIN_USRMN):
+                await bot.send_photo(lazy_channel,photo=location,caption=caption_zab,reply_markup=reply_markup)
+            else:
+                await bot.send_photo(lazy_channel,photo=location,caption=caption_zabi,reply_markup=reply_markup)
+        # await message.reply_text(text=f"(◞‸◟) ☞ 𝚜𝚘𝚖𝚎𝚝𝚑𝚒𝚗𝚐 𝚠𝚎𝚗𝚝 𝚠𝚛𝚘𝚗𝚐 𝚠𝚑𝚒𝚕𝚎 𝚊𝚜𝚜𝚎𝚖𝚋𝚕𝚒𝚗𝚐 𝙲𝙷𝙰𝙽𝙽𝙴𝙻-𝙿𝙾𝚂𝚃-𝚅𝙴𝚁𝙸𝙰𝙱𝙻𝙴𝚂. 𝙿𝚕𝚎𝚊𝚜𝚎 𝚌𝚘𝚗𝚝𝚊𝚌𝚝 𝚖𝚢 𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛 ☞ <a href='https://t.me/LazyDeveloper'>𝙻𝚊𝚣𝚢𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛</a>")
+            
         
     except FloodWait as sl:
         if sl.value > 45:
