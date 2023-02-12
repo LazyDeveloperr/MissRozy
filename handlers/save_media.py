@@ -55,7 +55,7 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
             f"𝘑𝘶𝘴𝘵 𝘊𝘭𝘪𝘤𝘬 𝘵𝘩𝘦 𝘭𝘪𝘯𝘬 𝘵𝘰 𝘨𝘦𝘵 𝘺𝘰𝘶𝘳 𝘧𝘪𝘭𝘦𝘴!",
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("⚡️ Open Link ⚡️", url=share_link)],
-                 [InlineKeyboardButton("🍿ß⊕ts Channel", url="https://t.me/LazyDeveloper"),
+                 [InlineKeyboardButton("🔊ß⊕ts Channel", url="https://t.me/LazyDeveloper"),
                   InlineKeyboardButton("🍿supp⊕rt gr⊕up", url="https://t.me/LazyDeveloperSupport")]]
             ),
             disable_web_page_preview=True
@@ -66,6 +66,9 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Open Link", url=share_link)]])
         )
+        # ✧ Bina soche smjhe code edit mt krna wrna error dhundne mei umrr beet jaayega.
+        # ✧ source code upgraded by The sir LazyDeveloper 
+        # ✧ Don't remove credit ✧ @LazyDeveloper ✧
         if(Config.LAZY_MODE == True):
             thumbs= message.video.thumbs[0]
             file_id= thumbs.file_id
@@ -93,6 +96,7 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
                  [InlineKeyboardButton("•⊹٭𝚓𝚘𝚒𝚗 𝚖𝚊𝚒𝚗 𝚌𝚑𝚊𝚗𝚗𝚎𝚕٭⊹•", url=main_btn_link)]
                 ]
             )
+            # ✧ Here is the condition for sending POST in movie channel
             if(Config.LP_CUSTOM_TEMPLATE):
                 await bot.send_photo(lazy_channel,photo=location,caption=lazypost_custom_template,reply_markup=reply_markup)
             elif(Config.LP_CUSTOM_TEMPLATE and Config.LP_BTN_MAIN_CH_USRNM):
@@ -111,7 +115,7 @@ async def save_batch_media_in_channel(bot: Client, editable: Message, message_id
                 await bot.send_photo(lazy_channel,photo=location,caption=caption_zab,reply_markup=reply_markup)
             else:
                 await bot.send_photo(lazy_channel,photo=location,caption=caption_zabi,reply_markup=reply_markup)
-        await message.reply_text(text=f"(◞‸◟) ☞ 𝚜𝚘𝚖𝚎𝚝𝚑𝚒𝚗𝚐 𝚠𝚎𝚗𝚝 𝚠𝚛𝚘𝚗𝚐 𝚠𝚑𝚒𝚕𝚎 𝚊𝚜𝚜𝚎𝚖𝚋𝚕𝚒𝚗𝚐 𝙲𝙷𝙰𝙽𝙽𝙴𝙻-𝙿𝙾𝚂𝚃-𝚅𝙴𝚁𝙸𝙰𝙱𝙻𝙴𝚂. 𝙿𝚕𝚎𝚊𝚜𝚎 𝚌𝚘𝚗𝚝𝚊𝚌𝚝 𝚖𝚢 𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛 ☞ <a href='https://t.me/LazyDeveloper'>𝙻𝚊𝚣𝚢𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛</a>")
+        # await message.reply_text(text=f"(◞‸◟) ☞ 𝚜𝚘𝚖𝚎𝚝𝚑𝚒𝚗𝚐 𝚠𝚎𝚗𝚝 𝚠𝚛𝚘𝚗𝚐 𝚠𝚑𝚒𝚕𝚎 𝚊𝚜𝚜𝚎𝚖𝚋𝚕𝚒𝚗𝚐 𝙲𝙷𝙰𝙽𝙽𝙴𝙻-𝙿𝙾𝚂𝚃-𝚅𝙴𝚁𝙸𝙰𝙱𝙻𝙴𝚂. 𝙿𝚕𝚎𝚊𝚜𝚎 𝚌𝚘𝚗𝚝𝚊𝚌𝚝 𝚖𝚢 𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛 ☞ <a href='https://t.me/LazyDeveloper'>𝙻𝚊𝚣𝚢𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛</a>")
 
     except Exception as err:
         await editable.edit(f"ꜱᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ...\n\n**Error:** `{err}`")
@@ -140,12 +144,15 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
             f"𝙃𝙚𝙧𝙚 𝙞𝙨 𝙩𝙝𝙚 𝙋𝙚𝙧𝙢𝙖𝙣𝙚𝙣𝙩 𝙇𝙞𝙣𝙠 𝙤𝙛 𝙮𝙤𝙪𝙧 𝙛𝙞𝙡𝙚: {share_link}  \n\n"
             f"𝘑𝘶𝘴𝘵 𝘊𝘭𝘪𝘤𝘬 𝘵𝘩𝘦 𝘭𝘪𝘯𝘬 𝘵𝘰 𝘨𝘦𝘵 𝘺𝘰𝘶𝘳 𝘧𝘪𝘭𝘦...",
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("Open Link", url=share_link)],
-                 [InlineKeyboardButton("ß⊕ts Channel", url="https://t.me/LazyDeveloper"),
-                  InlineKeyboardButton("supp⊕rt gr⊕up", url="https://t.me/LazyDeveloperSupport")]]
+                [[InlineKeyboardButton("⚡️ Open Link ⚡️", url=share_link)],
+                 [InlineKeyboardButton("🔊ß⊕ts Channel", url="https://t.me/LazyDeveloper"),
+                  InlineKeyboardButton("🍿supp⊕rt gr⊕up", url="https://t.me/LazyDeveloperSupport")]]
             ),
             disable_web_page_preview=True
         )
+        # ✧ Bina soche smjhe code edit mt krna wrna error dhundne mei umrr beet jaayega.
+        # ✧ source code upgraded by The sir LazyDeveloper 
+        # ✧ Don't remove credit ✧ @LazyDeveloper ✧
         if(Config.LAZY_MODE == True):
             thumbs= message.video.thumbs[0]
             file_id= thumbs.file_id
@@ -173,6 +180,7 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
                  [InlineKeyboardButton("•⊹٭𝚓𝚘𝚒𝚗 𝚖𝚊𝚒𝚗 𝚌𝚑𝚊𝚗𝚗𝚎𝚕٭⊹•", url=main_btn_link)]
                 ]
             )
+            # ✧ Here is the condition for sending POST in movie channel ✧ LazyDeveloper ✧
             if(Config.LP_CUSTOM_TEMPLATE):
                 await bot.send_photo(lazy_channel,photo=location,caption=lazypost_custom_template,reply_markup=reply_markup)
             elif(Config.LP_CUSTOM_TEMPLATE and Config.LP_BTN_MAIN_CH_USRNM):
@@ -191,7 +199,7 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
                 await bot.send_photo(lazy_channel,photo=location,caption=caption_zab,reply_markup=reply_markup)
             else:
                 await bot.send_photo(lazy_channel,photo=location,caption=caption_zabi,reply_markup=reply_markup)
-        await message.reply_text(text=f"(◞‸◟) ☞ 𝚜𝚘𝚖𝚎𝚝𝚑𝚒𝚗𝚐 𝚠𝚎𝚗𝚝 𝚠𝚛𝚘𝚗𝚐 𝚠𝚑𝚒𝚕𝚎 𝚊𝚜𝚜𝚎𝚖𝚋𝚕𝚒𝚗𝚐 𝙲𝙷𝙰𝙽𝙽𝙴𝙻-𝙿𝙾𝚂𝚃-𝚅𝙴𝚁𝙸𝙰𝙱𝙻𝙴𝚂. 𝙿𝚕𝚎𝚊𝚜𝚎 𝚌𝚘𝚗𝚝𝚊𝚌𝚝 𝚖𝚢 𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛 ☞ <a href='https://t.me/LazyDeveloper'>𝙻𝚊𝚣𝚢𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛</a>")
+        # await message.reply_text(text=f"(◞‸◟) ☞ 𝚜𝚘𝚖𝚎𝚝𝚑𝚒𝚗𝚐 𝚠𝚎𝚗𝚝 𝚠𝚛𝚘𝚗𝚐 𝚠𝚑𝚒𝚕𝚎 𝚊𝚜𝚜𝚎𝚖𝚋𝚕𝚒𝚗𝚐 𝙲𝙷𝙰𝙽𝙽𝙴𝙻-𝙿𝙾𝚂𝚃-𝚅𝙴𝚁𝙸𝙰𝙱𝙻𝙴𝚂. 𝙿𝚕𝚎𝚊𝚜𝚎 𝚌𝚘𝚗𝚝𝚊𝚌𝚝 𝚖𝚢 𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛 ☞ <a href='https://t.me/LazyDeveloper'>𝙻𝚊𝚣𝚢𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛</a>")
             
         
     except FloodWait as sl:
