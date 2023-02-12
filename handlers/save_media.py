@@ -199,9 +199,12 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
                 await bot.send_photo(lazy_channel,photo=location,caption=caption_zab,reply_markup=reply_markup)
             else:
                 await bot.send_photo(lazy_channel,photo=location,caption=caption_zabi,reply_markup=reply_markup)
-        # await message.reply_text(text=f"(◞‸◟) ☞ 𝚜𝚘𝚖𝚎𝚝𝚑𝚒𝚗𝚐 𝚠𝚎𝚗𝚝 𝚠𝚛𝚘𝚗𝚐 𝚠𝚑𝚒𝚕𝚎 𝚊𝚜𝚜𝚎𝚖𝚋𝚕𝚒𝚗𝚐 𝙲𝙷𝙰𝙽𝙽𝙴𝙻-𝙿𝙾𝚂𝚃-𝚅𝙴𝚁𝙸𝙰𝙱𝙻𝙴𝚂. 𝙿𝚕𝚎𝚊𝚜𝚎 𝚌𝚘𝚗𝚝𝚊𝚌𝚝 𝚖𝚢 𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛 ☞ <a href='https://t.me/LazyDeveloper'>𝙻𝚊𝚣𝚢𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛</a>")
-            
         
+        cptz = f"ღ♡ 𝘗𝘖𝘚𝘛 𝘜𝘗𝘓𝘖𝘈𝘋𝘌𝘋 𝘖𝘕 𝘊𝘏𝘕𝘕𝘌𝘓 𝘚𝘜𝘊𝘊𝘌𝘚𝘚𝘍𝘜𝘓𝘓𝘠 ✅\n\n**• NOTE: **ᴘʟᴇᴀꜱᴇ ᴏɴʟʏ ᴄʟɪᴄᴋ ->** ɢᴇᴛ ʙᴀᴛᴄʜ & ᴘᴏꜱᴛ **<- ᴏɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇ ᴀʙᴏᴠᴇ ᴍᴇꜱꜱᴀɢᴇꜱ\n\nN͢O͢ o͢f͢ c͢l͢i͢c͢k͢ = n͢o͢ o͢f͢ p͢o͢s͢t͢s͢\n\n• ʙᴇ ᴄᴀʀᴇꜰᴜʟʟ - ʏᴏᴜ ᴀʀᴇ ᴄᴜʀʀᴇɴᴛʟʏ ɪɴ ʟᴀᴢʏ_ᴍᴏᴅᴇ\n• @ʟᴀᴢʏᴅᴠᴇʟᴏᴘᴇʀ"
+        k = await message.reply_text(text=cptz)
+        await asyncio.sleep(10)
+        await k.delete()
+
     except FloodWait as sl:
         if sl.value > 45:
             print(f"Sleep of {sl.value}s caused by FloodWait ...")
