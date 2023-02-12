@@ -442,8 +442,8 @@ async def button(bot: Client, cmd: CallbackQuery):
                                    [InlineKeyboardButton("⚡️ ɢᴇᴛ ʙᴀᴛᴄʜ & ᴘᴏꜱᴛ ⚡️", callback_data="getBatchLink")],
                                    [InlineKeyboardButton("Close Message", callback_data="closeMessage")]
                                ]))
-        if(Config.LAZY_MODE == True):
-            cmd.message.reply_text(text=f"ღʃ♡ 𝙔𝙤𝙪 𝙖𝙧𝙚 𝙘𝙪𝙧𝙧𝙚𝙣𝙩𝙡𝙮 𝙞𝙣 𝙇𝘼𝙕𝙔_𝙈𝙊𝘿𝙀. ♡ƪღ\n\nᴘʟᴇᴀꜱᴇ ᴏɴʟʏ ᴄʟɪᴄᴋ ->** ᴏᴘᴇɴ ʙᴀᴛᴄʜ ʟɪɴᴋ **<- ᴏɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇ ᴀʙᴏᴠᴇ ᴍᴇꜱꜱᴀɢᴇꜱ\n\nN͢O͢ o͢f͢ c͢l͢i͢c͢k͢ = n͢o͢ o͢f͢ p͢o͢s͢t͢s͢\n\n<a href='https://t.me/LazyDeveloper'>ʟᴀᴢʏᴅᴠᴇʟᴏᴘᴇʀ<a/>")
+    if(Config.LAZY_MODE == True):
+        await cmd.message.edit(text=f"ღʃ♡ 𝙔𝙤𝙪 𝙖𝙧𝙚 𝙘𝙪𝙧𝙧𝙚𝙣𝙩𝙡𝙮 𝙞𝙣 𝙇𝘼𝙕𝙔_𝙈𝙊𝘿𝙀. ♡ƪღ\n\nᴘʟᴇᴀꜱᴇ ᴏɴʟʏ ᴄʟɪᴄᴋ ->** ᴏᴘᴇɴ ʙᴀᴛᴄʜ ʟɪɴᴋ **<- ᴏɴ ᴀɴʏ ᴏɴᴇ ᴏꜰ ᴛʜᴇ ᴀʙᴏᴠᴇ ᴍᴇꜱꜱᴀɢᴇꜱ\n\nN͢O͢ o͢f͢ c͢l͢i͢c͢k͢ = n͢o͢ o͢f͢ p͢o͢s͢t͢s͢\n\n<a href='https://t.me/LazyDeveloper'>ʟᴀᴢʏᴅᴠᴇʟᴏᴘᴇʀ<a/>")
 
     elif "addToBatchFalse" in cb_data:
         await save_media_in_channel(bot, editable=cmd.message, message=cmd.message.reply_to_message)
