@@ -128,17 +128,17 @@ async def save_media_in_channel(bot: Client, editable: Message, message: Message
             )
             if(Config.LP_CUSTOM_TEMPLATE):
                 await bot.send_photo(lazy_channel,photo=location,caption=lazypost_custom_template,reply_markup=reply_markup)
-            elif(Config.LP_CUSTOM_TEMPLATE & Config.LP_BTN_MAIN_CH_USRNM):
+            elif(Config.LP_CUSTOM_TEMPLATE and Config.LP_BTN_MAIN_CH_USRNM):
                 await bot.send_photo(lazy_channel,photo=location,caption=lazypost_custom_template,reply_markup=main_btn)
-            elif(Config.LP_CHANNEL_USRNM & Config.LPCH_ADMIN_USRMN & Config.LP_BTN_MAIN_CH_USRNM):
+            elif(Config.LP_CHANNEL_USRNM and Config.LPCH_ADMIN_USRMN and Config.LP_BTN_MAIN_CH_USRNM):
                 await bot.send_photo(lazy_channel,photo=location,caption=caption_z,reply_markup=main_btn)
-            elif(Config.LP_CHANNEL_USRNM & Config.LPCH_ADMIN_USRMN):
+            elif(Config.LP_CHANNEL_USRNM and Config.LPCH_ADMIN_USRMN):
                 await bot.send_photo(lazy_channel,photo=location,caption=caption_z,reply_markup=reply_markup)
-            elif(Config.LP_CHANNEL_USRNM & Config.LP_BTN_MAIN_CH_USRNM):
+            elif(Config.LP_CHANNEL_USRNM and Config.LP_BTN_MAIN_CH_USRNM):
                 await bot.send_photo(lazy_channel,photo=location,caption=caption_za,reply_markup=main_btn)
             elif(Config.LP_CHANNEL_USRNM):
                 await bot.send_photo(lazy_channel,photo=location,caption=caption_za,reply_markup=reply_markup)
-            elif(Config.LPCH_ADMIN_USRMN & Config.LP_BTN_MAIN_CH_USRNM):
+            elif(Config.LPCH_ADMIN_USRMN and Config.LP_BTN_MAIN_CH_USRNM):
                 await bot.send_photo(lazy_channel,photo=location,caption=caption_zab,reply_markup=main_btn)
             elif(Config.LPCH_ADMIN_USRMN):
                 await bot.send_photo(lazy_channel,photo=location,caption=caption_zab,reply_markup=reply_markup)
