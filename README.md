@@ -3,7 +3,7 @@
 </p>
 <h1 align="center">
   <b>Miss Rozy : A Permanent file Store BOT</b>
-  <p>I am the first permanent file store with Automatic thumbnail extracting + Automatic Movie Posting feature. Its all extra feature's source code is written by The Sir @LazyDeveloperr. </p>
+  <p>I am the first permanent file store with Automatic thumbnail extracting + Automatic Movie Posting feature. Its all extra feature's source code is written by The Sir LazyDeveloperr. </p>
 </h1>
 
 ## `Miss Rozy` : `Give me a STAR ⭐️`
@@ -25,9 +25,6 @@ I am hte first permanent file store with Automatic thumbnail extracting + Automa
 - You can also Broadcast anythings via this Bot.
 - You can also Do Force Sub to a Channel to allow access the Bot.
 - Save Multiple Files in Same Link. (Batch)
-
-### Demo Bot:
-<a href="https://telegram.me/LazyRose_fileStoreBOT"><img src="https://img.shields.io/badge/Demo-Telegram%20Bot-blue.svg?logo=telegram"></a>
 
 ## Configs:
 - `API_ID` - Get this from [@TeleORG_Bot](https://t.me/TeleORG_Bot)
@@ -70,6 +67,10 @@ I am hte first permanent file store with Automatic thumbnail extracting + Automa
 <a href="https://instagram.com/LazyDeveloperr"><img src="https://img.shields.io/badge/Instagram-Follow%20on%20Instagram-important.svg?logo=instagram"></a>
 </p>
 
+### Demo Bot:
+<a href="https://telegram.me/MissRozy_BOT"><img src="https://img.shields.io/badge/Demo-Telegram%20Bot-blue.svg?logo=telegram"></a>
+
+	
 ##🌟Credits
 - 🔥Thank you [LazyDeveloper](https://github.com/LazyDeveloperr) for adding `LAZY_MODE` (an advance feature.)
 - ⚡️Thank you [LazyDeveloper](https://github.com/LazyDeveloperr) for `FIXING ERRORS` and adding extra veriables.
