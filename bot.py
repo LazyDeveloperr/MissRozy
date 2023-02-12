@@ -69,8 +69,12 @@ async def start(bot: Client, cmd: Message):
     usr_cmd = cmd.text.split("_", 1)[-1]
     if usr_cmd == "/start":
         await add_user_to_database(bot, cmd)
-        await cmd.reply_photo(photo=lazy_pic,
-            caption=Config.HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id),
+        if(Config.LAZY_MODE == True):
+            captionz=Config.LAZY_HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id),
+        else :
+            captionz=Config.HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id),
+
+            await cmd.reply_photo(photo=lazy_pic,caption=captionz,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -83,10 +87,7 @@ async def start(bot: Client, cmd: Message):
                     ],
                     [
                         InlineKeyboardButton("⎝⎝✧✧ ᴡᴀᴛᴄʜ ᴛᴜᴛᴏʀɪᴀʟ ✧✧⎠⎠", url="https://youtube.com/@LazyDeveloperr")
-                    ]
-                ]
-            )
-        )
+                    ]]))
     else:
         try:
             try:
@@ -358,6 +359,9 @@ async def button(bot: Client, cmd: CallbackQuery):
                     [
                         InlineKeyboardButton("🤖Aß⊕ut ß⊕t", callback_data="aboutbot"),
                         InlineKeyboardButton("♥️Aß⊕ut Đ€V", callback_data="aboutdevs")
+                    ],
+                    [
+                        InlineKeyboardButton("⎝⎝✧✧ ᴡᴀᴛᴄʜ ᴛᴜᴛᴏʀɪᴀʟ ✧✧⎠⎠", url="https://youtube.com/@LazyDeveloperr")
                     ]
                 ]
             )
