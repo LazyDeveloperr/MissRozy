@@ -3,7 +3,7 @@
 </p>
 <h1 align="center">
   <b>Miss Rozy : A Permanent file Store BOT</b>
-  <p>I am the first permanent file store with Automatic thumbnail extracting + Automatic Movie Posting feature. Its all extra feature's source code is written by The Sir [LazyDeveloperr](https://github.com/LazyDeveloperr). </p>
+  <p>I am the first permanent file store with Automatic thumbnail extracting + Automatic Movie Posting feature. Its all extra feature's source code is written by The Sir @LazyDeveloperr. </p>
 </h1>
 
 ## `Miss Rozy` : `Give me a STAR ⭐️`
