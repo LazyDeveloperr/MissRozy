@@ -67,7 +67,7 @@ I am hte first permanent file store with Automatic thumbnail extracting + Automa
 [![YouTube](https://img.shields.io/badge/YouTube-Video%20Tutorial-red?logo=youtube)](https://youtu.be/Rtjyz3lEZwE)
 
 ### Support Group:
-<a href="https://t.me/LazyDeveloperSupport"><img src="https://img.shields.io/badge/Telegram-Join%20Telegram%20Group-blue.svg?logo=telegram"></a>
+<a href="https://telegram.me/LazyDeveloperSupport"><img src="https://img.shields.io/badge/Telegram-Join%20Telegram%20Group-blue.svg?logo=telegram"></a>
 
 ### Follow on:
 <p align="left">
@@ -84,7 +84,7 @@ I am hte first permanent file store with Automatic thumbnail extracting + Automa
 ##🌟Credits
 - 🔥Thank you [LazyDeveloper](https://github.com/LazyDeveloperr) for adding `LAZY_MODE` (an advance feature.)
 - ⚡️Thank you [LazyDeveloper](https://github.com/LazyDeveloperr) for `FIXING ERRORS` and adding extra veriables.
-- ❤️Thank you [LazyDeveloper](https://github.com/LazyDeveloperr) for for your contribution & also thank you for helping us in our journey
+- ❤️Thank you [LazyDeveloper](https://github.com/LazyDeveloperr) for your contribution & also thank you for helping us in our journey
 
 
 * **Language:** [Python3](https://www.python.org)
