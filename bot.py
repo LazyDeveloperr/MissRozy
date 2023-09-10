@@ -34,6 +34,8 @@ from handlers.force_sub_handler import (
     handle_force_sub,
     get_invite_link
 )
+import logging
+import logging.config
 logging.config.fileConfig('logging.conf')
 logging.getLogger().setLevel(logging.INFO)
 logging.getLogger("pyrogram").setLevel(logging.ERROR)
