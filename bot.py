@@ -140,10 +140,9 @@ async def start(bot: Client, cmd: Message):
         
             await asyncio.sleep(Config.AUTO_DELETE_TIME)
             for lazy in lazyfiles:
-                await warning_msg.delete()
                 await lazy.delete()
 
-            await cmd.reply_text(text=f"<b>Your All Files/Videos is successfully deleted</b>")
+            await warning_msg.edit_text(text=f"<b>Your All Files/Videos is successfully deleted</b>")
             
         except Exception as err:
             await cmd.reply_text(f"ꜱᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ.!\n\n**Error:** `{err}`")
