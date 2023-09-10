@@ -32,7 +32,15 @@ async def media_forward(bot: Client, user_id: int, file_id: int):
         return media_forward(bot, user_id, file_id)
 
 
-async def send_media_and_reply(bot: Client, user_id: int, file_id: int):
+
+async def send_media_and_reply(bot: Client, user_id: int, file_id: int, reply_markup=None):
     sent_message = await media_forward(bot, user_id, file_id)
     await reply_forward(message=sent_message, file_id=file_id)
+    if reply_markup:
+        await bot.send_cached_media(chat_id=user_id, file_id=file_id, reply_markup=reply_markup)
     await asyncio.sleep(2)
+    
+# async def send_media_and_reply(bot: Client, user_id: int, file_id: int):
+#     sent_message = await media_forward(bot, user_id, file_id)
+#     await reply_forward(message=sent_message, file_id=file_id)
+#     await asyncio.sleep(2)
