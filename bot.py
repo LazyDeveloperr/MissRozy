@@ -120,6 +120,15 @@ async def start(bot: Client, cmd: Message):
                 )
             else:
                 message_ids.append(int(GetMessage.id))
+            
+            # Adding Online Stream And Download Link @LazyDeveloperr
+
+
+            # keyboard = InlineKeyboardMarkup(
+            #     inline_keyboard=[
+            #         [InlineKeyboardButton("Button Text", callback_data="button_callback_data")]
+            #     ]
+            # )
             for i in range(len(message_ids)):
                 send_msg = await send_media_and_reply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i]))
                 lazyfiles.append(send_msg)
@@ -131,9 +140,10 @@ async def start(bot: Client, cmd: Message):
         
             await asyncio.sleep(Config.AUTO_DELETE_TIME)
             for lazy in lazyfiles:
+                await warning_msg.delete()
                 await lazy.delete()
 
-            await warning_msg.edit_text("<b>Your All Files/Videos is successfully deleted</b>")
+            await cmd.reply_text(text=f"<b>Your All Files/Videos is successfully deleted</b>")
             
         except Exception as err:
             await cmd.reply_text(f"ꜱᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ.!\n\n**Error:** `{err}`")
