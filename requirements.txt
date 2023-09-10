@@ -1,9 +1,9 @@
-Pyrogram
-TgCrypto
-motor
-aiofiles
-dnspython
-psutil
+Pyrogram==1.5.0
+TgCrypto==1.3.2
+motor==2.7.0
+aiofiles==0.8.0
+dnspython==2.1.1
+psutil==5.8.0
 Flask==2.2.2
 gunicorn==20.1.0
 aiohttp==3.8.1
