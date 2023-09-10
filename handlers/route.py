@@ -16,7 +16,7 @@ import time
 import mimetypes
 from aiohttp import web
 from aiohttp.http_exceptions import BadStatusLine
-from lazybot import multi_clients, work_loads, LazyPrincessBot
+from lazybot import multi_clients, work_loads, Bot
 from server.exceptions import FIleNotFound, InvalidHash
 from zzint import StartTime, __version__
 from util.custom_dl import ByteStreamer
@@ -33,7 +33,7 @@ async def root_route_handler(request):
         {
             "server_status": "running",
             "uptime": get_readable_time(time.time() - StartTime),
-            "telegram_bot": "@" + LazyPrincessBot.username,
+            "telegram_bot": "@" + Bot.username,
             "connected_bots": len(multi_clients),
             "loads": dict(
                 ("bot" + str(c + 1), l)
