@@ -622,7 +622,7 @@ async def Lazy_start():
     await app.setup()
     bind_address = "0.0.0.0" if ON_HEROKU else BIND_ADRESS
     await web.TCPSite(app, bind_address, PORT).start()
-    await Bot.idle()
+    await idle()
 
 
 if __name__ == '__main__':
