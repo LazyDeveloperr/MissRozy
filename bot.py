@@ -60,14 +60,17 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
 
 from pyrogram import idle
-from lazybot import LazyPrincessBot
+from lazybot import Bot
 from util.keepalive import ping_server
 from lazybot.clients import initialize_clients
 from aiohttp import web
 from handlers import web_server
 from pyrogram import Client, __version__
 
+
 MediaList = {}
+Bot.start()
+loop = asyncio.get_event_loop()
 
 PORT = "8080"
 
@@ -75,14 +78,6 @@ async def Lazy_start():
     print('\n')
     print(' Initalizing Telegram Bot ')
     await initialize_clients()
-
-    Bot = Client(
-    name=Config.BOT_USERNAME,
-    in_memory=True,
-    bot_token=Config.BOT_TOKEN,
-    api_id=Config.API_ID,
-    api_hash=Config.API_HASH
-    )
 
     @Bot.on_message(filters.private)
     async def _(bot: Client, cmd: Message):
@@ -619,8 +614,6 @@ async def Lazy_start():
             await cmd.answer()
         except QueryIdInvalid: pass
 
-    await Bot.start()
-
     if ON_HEROKU:
         asyncio.create_task(ping_server())
     me = await Bot.get_me()
@@ -634,14 +627,7 @@ async def Lazy_start():
 
 if __name__ == '__main__':
     try:
-        loop = asyncio.get_event_loop()
         loop.run_until_complete(Lazy_start())
     except KeyboardInterrupt:
         logging.info(' Service Stopped ')
 
-
-# if __name__ == '__main__':
-#     try:
-#         loop.run_until_complete(Lazy_start())
-#     except KeyboardInterrupt:
-#         logging.info(' Service Stopped ')
