@@ -110,6 +110,7 @@ async def start(bot: Client, cmd: Message):
                 file_id = int(usr_cmd.split("_")[-1])
             GetMessage = await bot.get_messages(chat_id=Config.DB_CHANNEL, message_ids=file_id)
             message_ids = []
+            lazyfiles = []
             if GetMessage.text:
                 message_ids = GetMessage.text.split(" ")
                 _response_msg = await cmd.reply_text(
@@ -120,7 +121,16 @@ async def start(bot: Client, cmd: Message):
             else:
                 message_ids.append(int(GetMessage.id))
             for i in range(len(message_ids)):
-                await send_media_and_reply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i]))
+                send_msg = await send_media_and_reply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i]))
+                lazyfiles.append(send_msg)
+
+            # Send a warning message to the user
+            warning_msg = await cmd.reply_text(chat_id = cmd.from_user.id, text=f"<b><u>❗️❗️❗️❗️❗️❗️--IMPORTANT--❗️❗️❗️❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
+            await asyncio.sleep(Config.AUTO_DELETE_TIME)
+            for lazy in lazyfiles:
+                await lazy.delete()
+            await warning_msg.edit_text("<b>Your All Files/Videos is successfully deleted</b>")
+            
         except Exception as err:
             await cmd.reply_text(f"ꜱᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ.!\n\n**Error:** `{err}`")
 
