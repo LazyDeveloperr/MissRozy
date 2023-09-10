@@ -6,7 +6,7 @@
 # for any error please contact me -> telegram@LazyDeveloperr or insta @LazyDeveloperr 
 # rip paid developers 🤣 - >> No need to buy paid source code while @LazyDeveloperr is here 😍😍
 from configs import *
-from lazybot import LazyPrincessBot
+from lazybot import Bot
 from util.human_readable import humanbytes
 from util.file_properties import get_file_ids
 from server.exceptions import InvalidHash
@@ -17,7 +17,7 @@ import aiohttp
 
 
 async def render_page(id, secure_hash):
-    file_data=await get_file_ids(LazyPrincessBot, int(STREAM_LOGS), int(id))
+    file_data=await get_file_ids(Bot, int(STREAM_LOGS), int(id))
     if file_data.unique_id[:6] != secure_hash:
         logging.debug(f'link hash: {secure_hash} - {file_data.unique_id[:6]}')
         logging.debug(f"Invalid hash for message with - ID {id}")
