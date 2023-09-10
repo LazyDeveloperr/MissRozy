@@ -24,6 +24,7 @@ from pyrogram.types import (
     Message
 )
 from configs import Config
+from configs import *
 from handlers.database import db
 from handlers.add_user_to_db import add_user_to_database
 from handlers.send_file import send_media_and_reply
@@ -33,22 +34,43 @@ from handlers.force_sub_handler import (
     handle_force_sub,
     get_invite_link
 )
+logging.config.fileConfig('logging.conf')
+logging.getLogger().setLevel(logging.INFO)
+logging.getLogger("pyrogram").setLevel(logging.ERROR)
+logging.getLogger("imdbpy").setLevel(logging.ERROR)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+logging.getLogger("aiohttp").setLevel(logging.ERROR)
+logging.getLogger("aiohttp.web").setLevel(logging.ERROR)
+
 from handlers.broadcast_handlers import main_broadcast_handler
 from handlers.save_media import (
     save_media_in_channel,
     save_batch_media_in_channel
 )
+from util.human_readable import humanbytes
+from urllib.parse import quote_plus
+from util.file_properties import get_name, get_hash, get_media_file_size
+import logging
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.ERROR)
+
+from pyrogram import idle
+from lazybot import LazyPrincessBot
+from util.keepalive import ping_server
+from lazybot.clients import initialize_clients
+from aiohttp import web
+from handlers import web_server
+from pyrogram import Client, __version__
+from pyrogram.raw.all import layer
 
 MediaList = {}
 
-Bot = Client(
-    name=Config.BOT_USERNAME,
-    in_memory=True,
-    bot_token=Config.BOT_TOKEN,
-    api_id=Config.API_ID,
-    api_hash=Config.API_HASH
-)
-
+PORT = "8080"
+Bot = LazyPrincessBot
+loop = asyncio.get_event_loop()
 
 @Bot.on_message(filters.private)
 async def _(bot: Client, cmd: Message):
@@ -123,23 +145,23 @@ async def start(bot: Client, cmd: Message):
             # Adding Online Stream And Download Link @LazyDeveloperr
 
 
-            
+           # Create the inline keyboard button with callback_data
+            button = InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file_id}')
+            # Create the inline keyboard markup with the button
+            keyboard = InlineKeyboardMarkup([[button]])
             lazyfiles = []
             for i in range(len(message_ids)):
-                send_msg = await send_media_and_reply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i]))
-                lazyfiles.append(send_msg)
-                print(f"Message ID {i + 1} appended to lazyfiles: {send_msg.message_id}")
+                await send_media_and_reply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i],  reply_markup = keyboard))
+                lazyfiles.append(message_ids[i])
 
 
             # Send a warning message to the user
             warning_msg = await cmd.reply_text(text=f"<b><u>❗️❗️❗️❗️❗️❗️--IMPORTANT--❗️❗️❗️❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>",
-                                                quote=True,
-                                               )
+                                                quote=True,)
         
-            await asyncio.sleep(10)
-            for lazy in lazyfiles:
-                if lazy:
-                    await lazy.delete()
+            await asyncio.sleep(Config.AUTO_DELETE_TIME)
+            for lazy in range(len(message_ids)):
+                await lazy.delete()
 
             await warning_msg.edit_text(text=f"<b>Your All Files/Videos is successfully deleted</b>")
             
@@ -516,6 +538,44 @@ async def button(bot: Client, cmd: CallbackQuery):
         except Exception as e:
             await cmd.answer(f"ᴄᴀɴ'ᴛ ʙᴀɴ ʜɪᴍ!\n\nError: {e}", show_alert=True)
 
+    elif cb_data.startswith("generate_stream_link"):
+        _, file_id = cb_data.split(":")
+        try:
+            user_id = cmd.from_user.id
+            username =  cmd.from_user.mention 
+
+            log_msg = await bot.send_cached_media(
+                chat_id=STREAM_LOGS,
+                file_id=file_id,
+            )
+            fileName = {quote_plus(get_name(log_msg))}
+            lazy_stream = f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+            lazy_download = f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+
+            xo = await cmd.message.reply_text(f'🔐')
+            await asyncio.sleep(1)
+            await xo.delete()
+
+            await log_msg.reply_text(
+                text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}",
+                quote=True,
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("web Download", url=lazy_download),  # we download Link
+                                                    InlineKeyboardButton('▶Stream online', url=lazy_stream)]])  # web stream Link
+            )
+            await cmd.message.reply_text(
+                text="•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ☠︎⚔",
+                quote=True,
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("web Download", url=lazy_download),  # we download Link
+                                                    InlineKeyboardButton('▶Stream online', url=lazy_stream)]])  # web stream Link
+            )
+        except Exception as e:
+            print(e)  # print the error message
+            await cmd.answer(f"☣something went wrong sweetheart\n\n{e}", show_alert=True)
+            return
+
+
     elif "addToBatchTrue" in cb_data:
         if MediaList.get(f"{str(cmd.from_user.id)}", None) is None:
             MediaList[f"{str(cmd.from_user.id)}"] = []
@@ -548,4 +608,25 @@ async def button(bot: Client, cmd: CallbackQuery):
     except QueryIdInvalid: pass
 
 
-Bot.run()
+async def Lazy_start():
+    print('\n')
+    print(' Initalizing Telegram Bot ')
+    bot_info = await LazyPrincessBot.get_me()
+    LazyPrincessBot.username = bot_info.username
+    await initialize_clients()
+    if ON_HEROKU:
+        asyncio.create_task(ping_server())
+    me = await LazyPrincessBot.get_me()
+    LazyPrincessBot.username = '@' + me.username
+    app = web.AppRunner(await web_server())
+    await app.setup()
+    bind_address = "0.0.0.0" if ON_HEROKU else BIND_ADRESS
+    await web.TCPSite(app, bind_address, PORT).start()
+    logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
+    await idle()
+
+if __name__ == '__main__':
+    try:
+        loop.run_until_complete(Lazy_start())
+    except KeyboardInterrupt:
+        logging.info(' Service Stopped ')
