@@ -123,14 +123,10 @@ async def start(bot: Client, cmd: Message):
             # Adding Online Stream And Download Link @LazyDeveloperr
 
 
-            # keyboard = InlineKeyboardMarkup(
-            #     inline_keyboard=[
-            #         [InlineKeyboardButton("Button Text", callback_data="button_callback_data")]
-            #     ]
-            # )
+            
             lazyfiles = []
             for i in range(len(message_ids)):
-                send_msg = await send_media_and_reply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i],  reply_markup = keyboard))
+                send_msg = await send_media_and_reply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i]))
                 lazyfiles.append(send_msg)
                 print(f"Message ID {i + 1} appended to lazyfiles: {send_msg.message_id}")
 
