@@ -157,7 +157,7 @@ async def Lazy_start():
                 keyboard = InlineKeyboardMarkup([[button]])
                 lazyfiles = []
                 for i in range(len(message_ids)):
-                    await send_media_and_reply(bot, chat_id=cmd.from_user.id, file_id=int(message_ids[i]), reply_markup=keyboard)
+                    await send_media_and_reply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i]), reply_markup=keyboard)
                     lazyfiles.append(message_ids[i])
 
                 # Send a warning message to the user
