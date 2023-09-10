@@ -25,20 +25,16 @@ from pyrogram import Client
 from configs import Config
 from configs import *
 
-class LazyPrincessXBot(Client):
-    def __init__(self):
-        super().__init__(
-            name=SESSION,
-            api_id=Config.API_ID,
-            api_hash=Config.API_HASH,
-            bot_token=Config.BOT_TOKEN,
-            in_memory=True,
-            workers=50,
-            plugins={"root": "handlers"},
-            sleep_threshold=5,
-        )
 
+Bot = Client(
+    name=Config.BOT_USERNAME,
+    in_memory=True,
+    bot_token=Config.BOT_TOKEN,
+    api_id=Config.API_ID,
+    api_hash=Config.API_HASH,
+    sleep_threshold=5,
+    workers=50,
+)
 multi_clients = {}
 work_loads = {}
 
-LazyPrincessBot = LazyPrincessXBot()
