@@ -158,7 +158,7 @@ async def Lazy_start():
                 keyboard = InlineKeyboardMarkup([[button]])
                 lazyfiles = []
                 for i in range(len(message_ids)):
-                    await send_media_and_reply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i],  reply_markup = keyboard))
+                    await send_media_and_reply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i]), reply_markup=keyboard)
                     lazyfiles.append(message_ids[i])
 
 
@@ -167,7 +167,7 @@ async def Lazy_start():
                                                     quote=True,)
             
                 await asyncio.sleep(Config.AUTO_DELETE_TIME)
-                for lazy in range(len(message_ids)):
+                for lazy in lazyfiles:
                     await lazy.delete()
 
                 await warning_msg.edit_text(text=f"<b>Your All Files/Videos is successfully deleted</b>")
