@@ -76,7 +76,7 @@ PORT = "8080"
 
 async def Lazy_start():
     print('\n')
-    print(' Initalizing Telegram Bot ')
+    print(' Initalizing clients ')
     await initialize_clients()
 
     @Bot.on_message(filters.private)
