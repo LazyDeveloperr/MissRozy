@@ -11,6 +11,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 async def reply_forward(message: Message, file_id: int):
     try:
+        filez_id = str_to_b64(str(file_id))
         await message.reply_text(
             f"**ʜᴇʀᴇ ɪꜱ ꜱʜᴀʀᴀʙʟᴇ ʟɪɴᴋ ᴏꜰ ᴛʜɪꜱ ꜰɪʟᴇ:**\n"
             f"https://t.me/{Config.BOT_USERNAME}?start=LazyDeveloperr_{str_to_b64(str(file_id))}\n"
@@ -21,7 +22,7 @@ async def reply_forward(message: Message, file_id: int):
             [
                 [
                     InlineKeyboardButton(
-                        text="▶ ɢᴇɴ ꜱᴛʀᴇᴀᴍ / ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ", callback_data=f'generate_stream_link:{file_id}'
+                        text="▶ ɢᴇɴ ꜱᴛʀᴇᴀᴍ / ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ", callback_data=f'generate_stream_link:{filez_id}'
                     )
                 ]
             ]
