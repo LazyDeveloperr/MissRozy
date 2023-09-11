@@ -12,8 +12,10 @@ async def reply_forward(message: Message, file_id: int):
     try:
         await message.reply_text(
             f"**ʜᴇʀᴇ ɪꜱ ꜱʜᴀʀᴀʙʟᴇ ʟɪɴᴋ ᴏꜰ ᴛʜɪꜱ ꜰɪʟᴇ:**\n"
-            f"https://t.me/{Config.BOT_USERNAME}?start=LazyDeveloperr_{str_to_b64(str(file_id))}\n\n"
-            f"__ᴛᴏ ʀᴇᴛʀɪᴠᴇ ᴛʜᴇ ꜱᴛᴏʀᴇᴅ ꜰɪʟᴇ, ᴊᴜꜱᴛ ᴏᴘᴇɴ ᴛʜᴇ ʟɪɴᴋ !__",
+            f"https://t.me/{Config.BOT_USERNAME}?start=LazyDeveloperr_{str_to_b64(str(file_id))}\n"
+            f"__ᴛᴏ ʀᴇᴛʀɪᴠᴇ ᴛʜᴇ ꜱᴛᴏʀᴇᴅ ꜰɪʟᴇ, ᴊᴜꜱᴛ ᴏᴘᴇɴ ᴛʜᴇ ʟɪɴᴋ !__\n\n"
+            f"**✪ ʜᴇʀᴇ ɪꜱ ꜰᴀꜱᴛ ᴅᴏᴡɴʟᴏᴀᴅ ᴀɴᴅ ꜱᴛʀᴇᴀᴍ ʟɪɴᴋ:**\n"
+            f"**[[⮶ꜰᴀꜱᴛ ᴅᴏᴡɴʟᴏᴀᴅ](https://t.me/LazyDeveloper)]** - **[[▶ꜱᴛʀᴇᴀᴍ ᴏɴʟɪɴᴇ](https://t.me/LazyDeveloper)]**\n",
             disable_web_page_preview=True, quote=True)
     except FloodWait as e:
         await asyncio.sleep(e.value)
@@ -32,15 +34,8 @@ async def media_forward(bot: Client, user_id: int, file_id: int):
         return media_forward(bot, user_id, file_id)
 
 
-
-async def send_media_and_reply(bot: Client, user_id: int, file_id: int, reply_markup=None):
+async def send_media_and_reply(bot: Client, user_id: int, file_id: int):
     sent_message = await media_forward(bot, user_id, file_id)
     await reply_forward(message=sent_message, file_id=file_id)
-    if reply_markup:
-        await bot.send_cached_media(chat_id=user_id, file_id=file_id, reply_markup=reply_markup)
     await asyncio.sleep(2)
-    
-# async def send_media_and_reply(bot: Client, user_id: int, file_id: int):
-#     sent_message = await media_forward(bot, user_id, file_id)
-#     await reply_forward(message=sent_message, file_id=file_id)
-#     await asyncio.sleep(2)
+
