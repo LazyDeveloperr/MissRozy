@@ -57,6 +57,7 @@ from urllib.parse import quote_plus
 from util.file_properties import get_name, get_hash, get_media_file_size
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from pyrogram import idle
 from lazybot import Bot
@@ -147,20 +148,15 @@ async def Lazy_start():
                     )
                 else:
                     message_ids.append(int(GetMessage.id))
-                
-                # Adding Online Stream And Download Link @LazyDeveloperr
 
-
-                lazyfiles = []
                 for i in range(len(message_ids)):
                     await send_media_and_reply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i]))
-                    lazyfiles.append(int(message_ids[i]))
 
                 # Send a warning message to the user
                 warning_msg = await bot.send_message(chat_id=cmd.from_user.id, text=f"<b><u>❗️❗️❗️❗️❗️❗️--IMPORTANT--❗️❗️❗️❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
             
                 await asyncio.sleep(Config.AUTO_DELETE_TIME)
-                for lazy in lazyfiles:
+                for lazy in message_ids:
                     await lazy.delete()
 
                 await warning_msg.edit_text(text=f"<b>Your All Files/Videos is successfully deleted</b>")
@@ -563,7 +559,7 @@ async def Lazy_start():
                     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("web Download", url=lazy_download),  # we download Link
                                                         InlineKeyboardButton('▶Stream online', url=lazy_stream)]])  # web stream Link
                 )
-                await cmd.message.reply_text(
+                await cmd.message.edit(
                     text="•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ☠︎⚔",
                     quote=True,
                     disable_web_page_preview=True,
