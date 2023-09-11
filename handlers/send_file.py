@@ -41,7 +41,7 @@ async def media_forward(bot: Client, user_id: int, file_id: int):
                                             [
                                                 [
                                                     InlineKeyboardButton(
-                                                        text="▶ ɢᴇɴ ꜱᴛʀᴇᴀᴍ / ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ", callback_data=f'generate_stream_link:{filez_id}'
+                                                        text="▶ ɢᴇɴ ꜱᴛʀᴇᴀᴍ / ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ", callback_data=f'generate_stream_link:{file_id}'
                                                     )
                                                 ]
                                             ]
@@ -54,7 +54,7 @@ async def media_forward(bot: Client, user_id: int, file_id: int):
                                                 [
                                                     [
                                                         InlineKeyboardButton(
-                                                            text="▶ ɢᴇɴ ꜱᴛʀᴇᴀᴍ / ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ", callback_data=f'generate_stream_link:{filez_id}'
+                                                            text="▶ ɢᴇɴ ꜱᴛʀᴇᴀᴍ / ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ", callback_data=f'generate_stream_link:{file_id}'
                                                         )
                                                     ]
                                                 ]
