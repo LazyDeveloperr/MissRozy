@@ -6,6 +6,7 @@ from pyrogram import Client
 from pyrogram.types import Message
 from pyrogram.errors import FloodWait
 from handlers.helpers import str_to_b64
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
 async def reply_forward(message: Message, file_id: int):
@@ -15,7 +16,16 @@ async def reply_forward(message: Message, file_id: int):
             f"https://t.me/{Config.BOT_USERNAME}?start=LazyDeveloperr_{str_to_b64(str(file_id))}\n"
             f"__ᴛᴏ ʀᴇᴛʀɪᴠᴇ ᴛʜᴇ ꜱᴛᴏʀᴇᴅ ꜰɪʟᴇ, ᴊᴜꜱᴛ ᴏᴘᴇɴ ᴛʜᴇ ʟɪɴᴋ !__\n\n"
             f"**✪ ʜᴇʀᴇ ɪꜱ ꜰᴀꜱᴛ ᴅᴏᴡɴʟᴏᴀᴅ ᴀɴᴅ ꜱᴛʀᴇᴀᴍ ʟɪɴᴋ:**\n"
-            f"**[[⮶ꜰᴀꜱᴛ ᴅᴏᴡɴʟᴏᴀᴅ](https://t.me/LazyDeveloper)]** - **[[▶ꜱᴛʀᴇᴀᴍ ᴏɴʟɪɴᴇ](https://t.me/LazyDeveloper)]**\n",
+            f"**[[ ᴊᴏɪɴ ᴅᴇᴠ ᴄʜᴀɴɴᴇʟ ](https://t.me/LazyDeveloper)]** - **[[ Sᵤ𝚋𝘴𝚌ᵣᵢ𝚋ₑ ](https://youtube.com/@LazyDeveloperr)]**\n",
+            reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        text="▶ ɢᴇɴ ꜱᴛʀᴇᴀᴍ / ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ", callback_data=f'generate_stream_link:{file_id}'
+                    )
+                ]
+            ]
+            ),
             disable_web_page_preview=True, quote=True)
     except FloodWait as e:
         await asyncio.sleep(e.value)
