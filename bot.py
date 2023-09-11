@@ -151,23 +151,23 @@ async def Lazy_start():
                 # Adding Online Stream And Download Link @LazyDeveloperr
 
 
-                # Create the inline keyboard button with callback_data
-                button = InlineKeyboardButton('▶ Gen Stream / Download Link', callback_data=f'generate_stream_link:{file_id}')
-                # Create the inline keyboard markup with the button
-                keyboard = InlineKeyboardMarkup([[button]])
+                lazyfiles = []
                 for i in range(len(message_ids)):
-                    await send_media_and_reply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i]), reply_markup=keyboard)
+                    await send_media_and_reply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i]))
+                    lazyfiles.append(int(message_ids[i]))
 
                 # Send a warning message to the user
                 warning_msg = await bot.send_message(chat_id=cmd.from_user.id, text=f"<b><u>❗️❗️❗️❗️❗️❗️--IMPORTANT--❗️❗️❗️❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
             
                 await asyncio.sleep(Config.AUTO_DELETE_TIME)
+                for lazy in lazyfiles:
+                    await lazy.delete()
 
                 await warning_msg.edit_text(text=f"<b>Your All Files/Videos is successfully deleted</b>")
                 
             except Exception as err:
                 await cmd.reply_text(f"ꜱᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ.!\n\n**Error:** `{err}`")
-
+        
 
     @Bot.on_message((filters.document | filters.video | filters.audio) & ~filters.chat(Config.DB_CHANNEL))
     async def main(bot: Client, message: Message):
