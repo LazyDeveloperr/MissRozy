@@ -66,7 +66,9 @@ from lazybot.clients import initialize_clients
 from aiohttp import web
 from handlers import web_server
 from pyrogram import Client, __version__
-
+from handlers.helpers import  decode, get_messages
+from pyrogram.enums import ParseMode
+import sys
 
 MediaList = {}
 Bot.start()
@@ -78,7 +80,19 @@ async def Lazy_start():
     print('\n')
     print(' Initalizing clients ')
     await initialize_clients()
+    try:
+        db_channel = await Bot.get_chat(Config.DB_CHANNEL)
+        Bot.db_channel = db_channel
+        test = await Bot.send_message(chat_id=db_channel.id, text="TEST")
+        await test.delete()
+        print("Bot is admin in db channel")
 
+    except Exception as e:
+        # Handle the exception, log it, and optionally take other actions
+        print(e)  # Print the error for debugging
+        print(f"Make Sure bot is Admin in DB Channel, and Double check the CHANNEL_ID Value, Current Value {CHANNEL_ID}")
+        print("\nBot Stopped bYE")
+        sys.exit()
     @Bot.on_message(filters.private)
     async def _(bot: Client, cmd: Message):
         await handle_user_status(bot, cmd)
@@ -94,7 +108,7 @@ async def Lazy_start():
             back = await handle_force_sub(bot, cmd)
             if back == 400:
                 return
-        
+        text = usr_cmd.text
         usr_cmd = cmd.text.split("_", 1)[-1]
         if usr_cmd == "/start":
             await add_user_to_database(bot, cmd)
@@ -133,35 +147,105 @@ async def Lazy_start():
             
         else:
             try:
-                try:
-                    file_id = int(b64_to_str(usr_cmd).split("_")[-1])
-                except (Error, UnicodeDecodeError):
-                    file_id = int(usr_cmd.split("_")[-1])
-                GetMessage = await bot.get_messages(chat_id=Config.DB_CHANNEL, message_ids=file_id)
-                message_ids = []
-                if GetMessage.text:
-                    message_ids = GetMessage.text.split(" ")
-                    _response_msg = await cmd.reply_text(
-                        text=f"**Total Files:** `{len(message_ids)}`",
-                        quote=True,
-                        disable_web_page_preview=True
-                    )
-                else:
-                    message_ids.append(int(GetMessage.id))
+                if len(text)>7:
+                    try:
+                        base64_string = text.split(" ", 1)[1]
+                    except:
+                        return
+                    string = await decode(base64_string)
+                    argument = string.split("-")
+                    if len(argument) == 3:
+                        try:
+                            start = int(int(argument[1]) / abs(bot.db_channel.id))
+                            end = int(int(argument[2]) / abs(bot.db_channel.id))
+                        except:
+                            return
+                        if start <= end:
+                            ids = range(start,end+1)
+                        else:
+                            ids = []
+                            i = start
+                            while True:
+                                ids.append(i)
+                                i -= 1
+                                if i < end:
+                                    break
+                    elif len(argument) == 2:
+                        try:
+                            ids = [int(int(argument[1]) / abs(bot.db_channel.id))]
+                        except:
+                            return
+                    temp_msg = await cmd.reply("Please wait...")
+                    try:
+                        messages = await get_messages(bot, ids)
+                    except:
+                        await cmd.reply_text("Something went wrong..!")
+                        return
+                    await temp_msg.delete()
 
-                for i in range(len(message_ids)):
-                    await send_media_and_reply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i]))
+                    lazyfiles = []
+                    for msg in messages:
+                        if bool(CUSTOM_CAPTION) & bool(msg.document):
+                            caption = CUSTOM_CAPTION.format(previouscaption = "" if not msg.caption else msg.caption.html, filename = msg.document.file_name)
+                        else:
+                            caption = "" if not msg.caption else msg.caption.html
 
-                # Send a warning message to the user
-                warning_msg = await bot.send_message(chat_id=cmd.from_user.id, text=f"<b><u>❗️❗️❗️❗️❗️❗️--IMPORTANT--❗️❗️❗️❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
+                        if DISABLE_CHANNEL_BUTTON:
+                            reply_markup = msg.reply_markup
+                        else:
+                            reply_markup = None
+
+                        try:
+                            sent_msg = await msg.copy(chat_id=cmd.from_user.id, caption=caption, parse_mode=ParseMode.HTML, reply_markup=reply_markup)
+                            lazyfiles.append(sent_msg)  # Add the sent message to the list
+                            await asyncio.sleep(0.5)
+
+                        except FloodWait as e:
+                            await asyncio.sleep(e.x)
+                            sent_msg = await msg.copy(chat_id=cmd.from_user.id, caption=caption, parse_mode=ParseMode.HTML, reply_markup=reply_markup)
+                            lazyfiles.append(sent_msg)  # Add the sent message to the list
+                        except:
+                            pass
+                          
+                    # Send a warning message to the user
+                    warning_msg = await bot.send_message(chat_id = cmd.from_user.id, text=f"<b><u>❗️❗️❗️❗️❗️❗️--IMPORTANT--❗️❗️❗️❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
+                    await asyncio.sleep(3600)
+                    for lazy in lazyfiles:
+                        await lazy.delete()
+                    await warning_msg.edit_text("<b>Your All Files/Videos is successfully deleted</b>")
+                    return
+
+
+                # try:
+                #     file_id = int(b64_to_str(usr_cmd).split("_")[-1])
+                # except (Error, UnicodeDecodeError):
+                #     file_id = int(usr_cmd.split("_")[-1])
+                # GetMessage = await bot.get_messages(chat_id=Config.DB_CHANNEL, message_ids=file_id)
+                # message_ids = []
+                # if GetMessage.text:
+                #     message_ids = GetMessage.text.split(" ")
+                #     _response_msg = await cmd.reply_text(
+                #         text=f"**Total Files:** `{len(message_ids)}`",
+                #         quote=True,
+                #         disable_web_page_preview=True
+                #     )
+                # else:
+                #     message_ids.append(int(GetMessage.id))
+
+                # for i in range(len(message_ids)):
+                #     await send_media_and_reply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i]))
+
+                # # Send a warning message to the user
+                # warning_msg = await bot.send_message(chat_id=cmd.from_user.id, text=f"<b><u>❗️❗️❗️❗️❗️❗️--IMPORTANT--❗️❗️❗️❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
             
-                await asyncio.sleep(Config.AUTO_DELETE_TIME)
-                for lazy in message_ids:
-                    await lazy.delete()
+                # await asyncio.sleep(Config.AUTO_DELETE_TIME)
+                # for lazy in message_ids:
+                #     await lazy.delete()
 
-                await warning_msg.edit_text(text=f"<b>Your All Files/Videos is successfully deleted</b>")
+                # await warning_msg.edit_text(text=f"<b>Your All Files/Videos is successfully deleted</b>")
                 
             except Exception as err:
+                print(err)
                 await cmd.reply_text(f"ꜱᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ.!\n\n**Error:** `{err}`")
         
 
