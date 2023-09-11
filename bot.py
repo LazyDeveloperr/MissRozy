@@ -535,24 +535,20 @@ async def Lazy_start():
                 await cmd.answer(f"ᴄᴀɴ'ᴛ ʙᴀɴ ʜɪᴍ!\n\nError: {e}", show_alert=True)
 
         elif cb_data.startswith("generate_stream_link"):
-            _, file_id = cb_data.split(":")
+            _, lazy_file = cb_data.split(":")
             try:
                 user_id = cmd.from_user.id
                 username =  cmd.from_user.mention 
-
-                log_msg = await bot.send_cached_media(
-                    chat_id=STREAM_LOGS,
-                    file_id=file_id,
-                )
-                fileName = {quote_plus(get_name(log_msg))}
-                lazy_stream = f"{URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-                lazy_download = f"{URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+                
+                fileName = {quote_plus(get_name(lazy_file))}
+                lazy_stream = f"{URL}watch/{str(lazy_file.id)}/{quote_plus(get_name(lazy_file))}?hash={get_hash(lazy_file)}"
+                lazy_download = f"{URL}{str(lazy_file.id)}/{quote_plus(get_name(lazy_file))}?hash={get_hash(lazy_file)}"
 
                 xo = await cmd.message.reply_text(f'🔐')
                 await asyncio.sleep(1)
                 await xo.delete()
 
-                await log_msg.reply_text(
+                await lazy_file.reply_text(
                     text=f"•• ʟɪɴᴋ ɢᴇɴᴇʀᴀᴛᴇᴅ ꜰᴏʀ ɪᴅ #{user_id} \n•• ᴜꜱᴇʀɴᴀᴍᴇ : {username} \n\n•• ᖴᎥᒪᗴ Nᗩᗰᗴ : {fileName}",
                     quote=True,
                     disable_web_page_preview=True,
