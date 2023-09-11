@@ -2,6 +2,7 @@
 
 import asyncio
 from configs import Config
+from configs import *
 from pyrogram import Client
 from pyrogram.types import Message
 from pyrogram.errors import FloodWait
@@ -35,26 +36,36 @@ async def reply_forward(message: Message, file_id: int):
 async def media_forward(bot: Client, user_id: int, file_id: int):
     try:
         if Config.FORWARD_AS_COPY is True:
-            return await bot.copy_message(chat_id=user_id, from_chat_id=Config.DB_CHANNEL,
+                lazy_msg = await bot.send_cached_media(
+                    chat_id=STREAM_LOGS,
+                    file_id=file_id,
+                )
+                lazy_file = str(lazy_msg.message_id)
+                return await bot.copy_message(chat_id=user_id, from_chat_id=Config.DB_CHANNEL,
                                           message_id=file_id, 
                                           reply_markup=InlineKeyboardMarkup(
                                             [
                                                 [
                                                     InlineKeyboardButton(
-                                                        text="▶ ɢᴇɴ ꜱᴛʀᴇᴀᴍ / ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ", callback_data=f'generate_stream_link:{file_id}'
+                                                        text="▶ ɢᴇɴ ꜱᴛʀᴇᴀᴍ / ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ", callback_data=f'generate_stream_link:{lazy_file}'
                                                     )
                                                 ]
                                             ]
                                             ),
                                             )
         elif Config.FORWARD_AS_COPY is False:
+            lazy_msg = await bot.send_cached_media(
+                    chat_id=STREAM_LOGS,
+                    file_id=file_id,
+                )
+            lazy_file = str(lazy_msg.message_id)
             return await bot.forward_messages(chat_id=user_id, from_chat_id=Config.DB_CHANNEL,
                                               message_ids=file_id,
                                               reply_markup=InlineKeyboardMarkup(
                                                 [
                                                     [
                                                         InlineKeyboardButton(
-                                                            text="▶ ɢᴇɴ ꜱᴛʀᴇᴀᴍ / ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ", callback_data=f'generate_stream_link:{file_id}'
+                                                            text="▶ ɢᴇɴ ꜱᴛʀᴇᴀᴍ / ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ", callback_data=f'generate_stream_link:{lazy_file}'
                                                         )
                                                     ]
                                                 ]
