@@ -146,75 +146,6 @@ async def Lazy_start():
             
         else:
             try:
-                # if len(text)>7:
-                #     try:
-                #         base64_string = text.split(" ", 1)[1]
-                #     except:
-                #         return
-                #     string = await decode(base64_string)
-                #     argument = string.split("-")
-                #     if len(argument) == 3:
-                #         try:
-                #             start = int(int(argument[1]) / abs(bot.db_channel.id))
-                #             end = int(int(argument[2]) / abs(bot.db_channel.id))
-                #         except:
-                #             return
-                #         if start <= end:
-                #             ids = range(start,end+1)
-                #         else:
-                #             ids = []
-                #             i = start
-                #             while True:
-                #                 ids.append(i)
-                #                 i -= 1
-                #                 if i < end:
-                #                     break
-                #     elif len(argument) == 2:
-                #         try:
-                #             ids = [int(int(argument[1]) / abs(bot.db_channel.id))]
-                #         except:
-                #             return
-                #     temp_msg = await cmd.reply("Please wait...")
-                #     try:
-                #         messages = await get_messages(bot, ids)
-                #     except:
-                #         await cmd.reply_text("Something went wrong..!")
-                #         return
-                #     await temp_msg.delete()
-
-                #     lazyfiles = []
-                #     for msg in messages:
-                #         if bool(CUSTOM_CAPTION) & bool(msg.document):
-                #             caption = CUSTOM_CAPTION.format(previouscaption = "" if not msg.caption else msg.caption.html, filename = msg.document.file_name)
-                #         else:
-                #             caption = "" if not msg.caption else msg.caption.html
-
-                #         if DISABLE_CHANNEL_BUTTON:
-                #             reply_markup = msg.reply_markup
-                #         else:
-                #             reply_markup = None
-
-                #         try:
-                #             sent_msg = await msg.copy(chat_id=cmd.from_user.id, caption=caption, parse_mode=ParseMode.HTML, reply_markup=reply_markup)
-                #             lazyfiles.append(sent_msg)  # Add the sent message to the list
-                #             await asyncio.sleep(0.5)
-
-                #         except FloodWait as e:
-                #             await asyncio.sleep(e.x)
-                #             sent_msg = await msg.copy(chat_id=cmd.from_user.id, caption=caption, parse_mode=ParseMode.HTML, reply_markup=reply_markup)
-                #             lazyfiles.append(sent_msg)  # Add the sent message to the list
-                #         except:
-                #             pass
-                          
-                #     # Send a warning message to the user
-                #     warning_msg = await bot.send_message(chat_id = cmd.from_user.id, text=f"<b><u>❗️❗️❗️❗️❗️❗️--IMPORTANT--❗️❗️❗️❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
-                #     await asyncio.sleep(3600)
-                #     for lazy in lazyfiles:
-                #         await lazy.delete()
-                #     await warning_msg.edit_text("<b>Your All Files/Videos is successfully deleted</b>")
-                #     return
-
-
                 try:
                     file_id = int(b64_to_str(usr_cmd).split("_")[-1])
                 except (Error, UnicodeDecodeError):
@@ -234,15 +165,6 @@ async def Lazy_start():
                 for i in range(len(message_ids)):
                     await send_media_and_reply(bot, user_id=cmd.from_user.id, file_id=int(message_ids[i]))
 
-                # Send a warning message to the user
-                # warning_msg = await bot.send_message(chat_id=cmd.from_user.id, text=f"<b><u>❗️❗️❗️❗️❗️❗️--IMPORTANT--❗️❗️❗️❗️️❗️❗️</u></b>\n\nThis Movie Files/Videos will be deleted in <b><u>10 mins</u> 🫥 <i></b>(Due to Copyright Issues)</i>.\n\n<b><i>Please forward this ALL Files/Videos to your Saved Messages and Start Download there</i></b>")
-            
-                # await asyncio.sleep(Config.AUTO_DELETE_TIME)
-                # for lazy in message_ids:
-                #     await lazy.delete()
-
-                # await warning_msg.edit_text(text=f"<b>Your All Files/Videos is successfully deleted</b>")
-                
             except Exception as err:
                 print(err)
                 await cmd.reply_text(f"ꜱᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ.!\n\n**Error:** `{err}`")
