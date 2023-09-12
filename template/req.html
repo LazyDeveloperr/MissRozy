@@ -215,11 +215,7 @@
                             <p class="sm:text-[30px] text-lg  mt-4 px-2 py-2  border-bottom border-primary-subtle  bg-clip-text text-transparent bg-gradient-to-r from-pink-200 to-red-600 font-semibold mb-2 wow animate__animated animate__rubberBand">Join me now...</p>
                         </div>
                         <!-- contents -->
-                        <div class="col-lg-11 col-12 ">
-                            <div class=" grid lg:grid-cols-4 grid-cols-2  d-flex flex-row flex-wrap  justify-content-start align-items-center rounded-3 overflow-hidden wow animate__animated animate__flipInX" id="video-cards">
-                                    <!-- video cards loaded here -->
-                            </div>
-                        </div>
+                        
                         
                 </div>
             </div>
@@ -309,65 +305,21 @@
                 <a class="bg-clip-text text-[16px] text-transparent bg-gradient-to-r from-pink-500 to-violet-500 font-bold tracking-wide px-1" href="https://telegram.me/LazyDeveloperr">LazyDeveloperr</a>
                 <!--🥰  Thank you for giving me credit @LazyDeveloperr  🥰 -->
                 All right reserved
-            </div>   
+            </div>  
+
+	     <div class="text-center text-xs p-3 dark:text-light text-light gap-2" style="background-color: rgba(0, 0, 0, 0.2);">
+                <!--🥰  Thank you for giving me credit @LazyDeveloperr  🥰 -->
+               A special thanks to : sir
+               <!--🥰 🙏  Please Don't remove credit @LazyDeveloperr  🥰 -->
+                <a class="bg-clip-text text-[16px] text-transparent bg-gradient-to-r from-pink-500 to-violet-500 font-bold tracking-wide px-1" href="https://telegram.me/LazyDeveloperr">LazyDeveloperr</a>
+                <!--🥰  Thank you for giving me credit @LazyDeveloperr  🥰 -->
+                
+            </div>  
+		
         </footer>
 
-<!-- if you are for this source code then please thanks to me @LazyDeveloperr && Dont remove the cr -->
-<!-- yt api section -->
-<script src="https://apis.google.com/js/api.js"></script>
+<!-- if you are here for this source code then please thanks to me @LazyDeveloperr && Dont remove the cr -->
 
-
-<script>
-            
-// Replace with your YouTube Data API key
-// 🥰  Thank you for giving me credit @LazyDeveloperr  🥰 
-var apiKey = 'AIzaSyBSiL7h9XBtj8yWFX0WNyc2aL4S7hYcakE';
-
-// Replace with your YouTube channel ID
-var channelId = 'UCY-iDra0x2hdd9PdHKcZkRw';
-
-// Maximum number of videos to display [-1]
-var maxResults = 29;
-
-// Fetch YouTube videos using the API
-fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=' + channelId + '&maxResults=' + maxResults +  '&order=date&key=' + apiKey)
-.then(response => response.json())
-.then(data => {
-    var videos = data.items.filter(item=>item.id.kind === "youtube#video");
-    var videoCards = '';
-    
-    videos.forEach(function(video) {
-        var videoId = video.id.videoId;
-        var title = video.snippet.title;
-        var thumbnail = video.snippet.thumbnails.medium.url;
-        
-    // 🥰  Thank you for giving me credit @LazyDeveloperr  🥰 
-    // Create HTML for each video card
-      var card = `
-                     <div class=" col-lg-3 col-6 flex-wrap d-flex rounded-3xl overflow-hidden justify-center items-center p-1 wow animate__animated animate__fadeInUp ">
-                        <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank">
-                        <div href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="bg-dark px-2 flex-wrap d-flex justify-content-center align-items-center">
-                            <img class="rounded-bottom-3 mb-2 wow animate__animated animate__rollIn" src="${thumbnail}" alt="${title}">
-                            <div class='text-center mt-3' style="height: 100px;">
-                                <a class='flex-wrap nav-link text-decoration-none link-underline-opacity-0 text-sm overflow-hidden wow animate__animated animate__FadeInDown active:text-red-400' href="https://www.youtube.com/watch?v=${videoId}" target="_blank">${title}</a>
-                            </div>
-                        </div>
-                        </a>
-                      </div>
-      `;
-
-      videoCards += card;
-      
-    });
-
-    // Display the video cards in the specified div element
-    document.getElementById('video-cards').innerHTML = videoCards;
-  })
-  .catch(error => {
-    console.error('Error loading YouTube videos:', error);
-  });
-
-</script>
     
     <script src="js/wow.min.js"></script>
     <script>
