@@ -37,8 +37,9 @@ async def media_forward(bot: Client, user_id: int, file_id: int):
     try:
         if Config.FORWARD_AS_COPY is True:
                 
-                # lazy_file =  bot.send_message(chat_id=Config.DB_CHANNEL, file_id=file_id)
-                lazy_file = await bot.get_messages(chat_id=Config.DB_CHANNEL, message_ids=file_id)
+                lazy_filex = await bot.get_messages(chat_id=Config.DB_CHANNEL, message_ids=file_id)
+                lazy_file =  bot.send_message(chat_id=Config.DB_CHANNEL, file_id=lazy_filex.id)
+
 
                 lazy_stream = f"{URL}watch/{str(lazy_file.id)}/{quote_plus(get_name(lazy_file))}?hash={get_hash(lazy_file)}"
                 # lazy_download = f"{URL}{str(lazy_file.id)}/{quote_plus(get_name(lazy_file))}?hash={get_hash(lazy_file)}"
