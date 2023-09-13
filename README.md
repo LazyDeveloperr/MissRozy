@@ -58,9 +58,11 @@ I am hte first permanent file store with Automatic thumbnail extracting + Automa
          - Put all banned user IDs & Separate with space.
 - `BANNED_CHAT_IDS` - All Banned Channel IDs *(Optional)*
 	- Put all banned channel IDs & Separate with space.
-
+- `FQDN` - give your fully qualified domain name *(important)*
+- `STREAM_LOGS` - Add streams logs channel id to send logs *(important)*
+- 
 ### Video Tutorial:
-[![YouTube](https://img.shields.io/badge/YouTube-Video%20Tutorial-red?logo=youtube)](https://youtu.be/Rtjyz3lEZwE)
+[![YouTube](https://img.shields.io/badge/YouTube-Video%20Tutorial-red?logo=youtube)](https://youtu.be/6ueOAngytso)
 
 ### Deploy Now:
 <a target="_blank" href="https://app.koyeb.com/deploy?type=git&repository=github.com/LazyDeveloperr/MissRozy&branch=main&name=missrozybot"><img alt="Deploy to Koyeb" src="https://binbashbanana.github.io/deploy-buttons/buttons/remade/koyeb.svg"></a>
